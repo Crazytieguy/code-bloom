@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Monitor, Apple, Terminal, Github, Code, Download, Settings, FolderPlus } from "lucide-react";
+import { Monitor, Apple, Terminal, Github, Code, Download, Settings, FolderPlus, Search } from "lucide-react";
 import { useState } from "react";
 import { CodeBlock } from "@/components/CodeBlock";
 import { InteractiveCodeBlock } from "@/components/InteractiveCodeBlock";
@@ -162,6 +162,19 @@ git config --global user.email "{userEmail}"`}
           <CodeBlock language="bash">mkdir ~/projects</CodeBlock>
         </div>
       </div>
+
+      <div className="not-prose">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="badge badge-primary badge-lg">9</div>
+          <Search className="w-6 h-6 text-primary" />
+          <h2 className="text-xl font-semibold">Install ripgrep</h2>
+          <div className="badge badge-outline badge-lg">Optional</div>
+        </div>
+        <div className="ml-12">
+          <p className="mb-4">Fast search tool used by Claude Code. Install in your WSL Ubuntu environment:</p>
+          <CodeBlock language="bash">sudo apt-get install ripgrep</CodeBlock>
+        </div>
+      </div>
     </div>
   );
 }
@@ -266,6 +279,19 @@ git config --global user.email "{userEmail}"`}
         </div>
       </div>
 
+      <div className="not-prose">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="badge badge-primary badge-lg">9</div>
+          <Search className="w-6 h-6 text-primary" />
+          <h2 className="text-xl font-semibold">Install ripgrep</h2>
+          <div className="badge badge-outline badge-lg">Optional</div>
+        </div>
+        <div className="ml-12">
+          <p className="mb-4">Fast search tool used by Claude Code:</p>
+          <CodeBlock language="bash">brew install ripgrep</CodeBlock>
+        </div>
+      </div>
+
     </div>
   );
 }
@@ -355,6 +381,32 @@ git config --global user.email "{userEmail}"`}
         </div>
         <div className="ml-12">
           <CodeBlock language="bash">mkdir ~/projects</CodeBlock>
+        </div>
+      </div>
+
+      <div className="not-prose">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="badge badge-primary badge-lg">8</div>
+          <Search className="w-6 h-6 text-primary" />
+          <h2 className="text-xl font-semibold">Install ripgrep</h2>
+          <div className="badge badge-outline badge-lg">Optional</div>
+        </div>
+        <div className="ml-12">
+          <p className="mb-4">Fast search tool used by Claude Code. Choose your package manager:</p>
+          <div className="space-y-3">
+            <div>
+              <p className="font-medium mb-2">Ubuntu/Debian:</p>
+              <CodeBlock language="bash">sudo apt-get install ripgrep</CodeBlock>
+            </div>
+            <div>
+              <p className="font-medium mb-2">Arch Linux:</p>
+              <CodeBlock language="bash">sudo pacman -S ripgrep</CodeBlock>
+            </div>
+            <div>
+              <p className="font-medium mb-2">Fedora:</p>
+              <CodeBlock language="bash">sudo dnf install ripgrep</CodeBlock>
+            </div>
+          </div>
         </div>
       </div>
     </div>
