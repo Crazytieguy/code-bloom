@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Monitor, Apple, Terminal, Github, Code, Download, Settings, GitBranch, FolderPlus } from "lucide-react";
+import { Monitor, Apple, Terminal, Github, Code, Download, Settings, FolderPlus } from "lucide-react";
 import { useState } from "react";
 import { CodeBlock } from "@/components/CodeBlock";
 import { InteractiveCodeBlock } from "@/components/InteractiveCodeBlock";
