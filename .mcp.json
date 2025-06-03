@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "pnpx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "shell-commands": {
+      "command": "pnpm",
+      "args": ["tsx", "scripts/mcp-shell-server.ts"]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:daisyui.com)",
+      "WebFetch(domain:docs.convex.dev)",
+      "WebFetch(domain:tanstack.com)",
+      "Bash(pnpm run:*)",
+      "Bash(pnpm convex dev:*)",
+      "Bash(git add:*)",
+      "Bash(rm:*)",
+      "mcp__ide__getDiagnostics",
+      "mcp__shell-commands__list-commands",
+      "mcp__shell-commands__get-output",
+      "mcp__shell-commands__kill-command",
+      "mcp__shell-commands__launch-dev-all",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_tab_select",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_resize"
+    ],
+    "deny": []
+  }
+}

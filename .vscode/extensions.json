@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "yoavbls.pretty-ts-errors",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens",
+    "tamasfe.even-better-toml"
+  ]
+}

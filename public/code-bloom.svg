@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Flower petals with gradient -->
+  <defs>
+    <radialGradient id="petalGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- 8 petals arranged in a circle -->
+  <g transform="translate(12, 12)">
+    <!-- Top petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899"/>
+    <!-- Top-right petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(45)"/>
+    <!-- Right petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(90)"/>
+    <!-- Bottom-right petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(135)"/>
+    <!-- Bottom petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(180)"/>
+    <!-- Bottom-left petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(225)"/>
+    <!-- Left petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(270)"/>
+    <!-- Top-left petal -->
+    <ellipse cx="0" cy="-6" rx="3" ry="5" fill="#ec4899" transform="rotate(315)"/>
+    
+    <!-- Flower center -->
+    <circle cx="0" cy="0" r="4" fill="url(#petalGradient)"/>
+  </g>
+</svg>
