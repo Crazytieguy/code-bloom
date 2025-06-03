@@ -12,8 +12,12 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as UsageImport } from './routes/usage'
+import { Route as SubmitImport } from './routes/submit'
 import { Route as SetupImport } from './routes/setup'
+import { Route as ReportsImport } from './routes/reports'
 import { Route as IndexImport } from './routes/index'
+import { Route as ReportsIndexImport } from './routes/reports.index'
+import { Route as ReportsReportIdImport } from './routes/reports.$reportId'
 
 // Create/Update Routes
 
@@ -23,9 +27,21 @@ const UsageRoute = UsageImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const SubmitRoute = SubmitImport.update({
+  id: '/submit',
+  path: '/submit',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const SetupRoute = SetupImport.update({
   id: '/setup',
   path: '/setup',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ReportsRoute = ReportsImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -33,6 +49,18 @@ const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const ReportsIndexRoute = ReportsIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ReportsRoute,
+} as any)
+
+const ReportsReportIdRoute = ReportsReportIdImport.update({
+  id: '/$reportId',
+  path: '/$reportId',
+  getParentRoute: () => ReportsRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -46,11 +74,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsImport
+      parentRoute: typeof rootRoute
+    }
     '/setup': {
       id: '/setup'
       path: '/setup'
       fullPath: '/setup'
       preLoaderRoute: typeof SetupImport
+      parentRoute: typeof rootRoute
+    }
+    '/submit': {
+      id: '/submit'
+      path: '/submit'
+      fullPath: '/submit'
+      preLoaderRoute: typeof SubmitImport
       parentRoute: typeof rootRoute
     }
     '/usage': {
@@ -60,48 +102,105 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsageImport
       parentRoute: typeof rootRoute
     }
+    '/reports/$reportId': {
+      id: '/reports/$reportId'
+      path: '/$reportId'
+      fullPath: '/reports/$reportId'
+      preLoaderRoute: typeof ReportsReportIdImport
+      parentRoute: typeof ReportsImport
+    }
+    '/reports/': {
+      id: '/reports/'
+      path: '/'
+      fullPath: '/reports/'
+      preLoaderRoute: typeof ReportsIndexImport
+      parentRoute: typeof ReportsImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface ReportsRouteChildren {
+  ReportsReportIdRoute: typeof ReportsReportIdRoute
+  ReportsIndexRoute: typeof ReportsIndexRoute
+}
+
+const ReportsRouteChildren: ReportsRouteChildren = {
+  ReportsReportIdRoute: ReportsReportIdRoute,
+  ReportsIndexRoute: ReportsIndexRoute,
+}
+
+const ReportsRouteWithChildren =
+  ReportsRoute._addFileChildren(ReportsRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/reports': typeof ReportsRouteWithChildren
   '/setup': typeof SetupRoute
+  '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
+  '/reports/$reportId': typeof ReportsReportIdRoute
+  '/reports/': typeof ReportsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/setup': typeof SetupRoute
+  '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
+  '/reports/$reportId': typeof ReportsReportIdRoute
+  '/reports': typeof ReportsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/reports': typeof ReportsRouteWithChildren
   '/setup': typeof SetupRoute
+  '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
+  '/reports/$reportId': typeof ReportsReportIdRoute
+  '/reports/': typeof ReportsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/setup' | '/usage'
+  fullPaths:
+    | '/'
+    | '/reports'
+    | '/setup'
+    | '/submit'
+    | '/usage'
+    | '/reports/$reportId'
+    | '/reports/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/setup' | '/usage'
-  id: '__root__' | '/' | '/setup' | '/usage'
+  to: '/' | '/setup' | '/submit' | '/usage' | '/reports/$reportId' | '/reports'
+  id:
+    | '__root__'
+    | '/'
+    | '/reports'
+    | '/setup'
+    | '/submit'
+    | '/usage'
+    | '/reports/$reportId'
+    | '/reports/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ReportsRoute: typeof ReportsRouteWithChildren
   SetupRoute: typeof SetupRoute
+  SubmitRoute: typeof SubmitRoute
   UsageRoute: typeof UsageRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ReportsRoute: ReportsRouteWithChildren,
   SetupRoute: SetupRoute,
+  SubmitRoute: SubmitRoute,
   UsageRoute: UsageRoute,
 }
 
@@ -116,18 +215,38 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/reports",
         "/setup",
+        "/submit",
         "/usage"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/reports": {
+      "filePath": "reports.tsx",
+      "children": [
+        "/reports/$reportId",
+        "/reports/"
+      ]
+    },
     "/setup": {
       "filePath": "setup.tsx"
     },
+    "/submit": {
+      "filePath": "submit.tsx"
+    },
     "/usage": {
       "filePath": "usage.tsx"
+    },
+    "/reports/$reportId": {
+      "filePath": "reports.$reportId.tsx",
+      "parent": "/reports"
+    },
+    "/reports/": {
+      "filePath": "reports.index.tsx",
+      "parent": "/reports"
     }
   }
 }

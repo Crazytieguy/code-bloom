@@ -2,6 +2,8 @@ import {
   ClerkProvider,
   useAuth as useClerkAuth,
   useUser,
+  UserButton,
+  SignInButton,
 } from "@clerk/clerk-react";
 import type { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -26,6 +28,20 @@ export const Route = createRootRouteWithContext<{
 }>()({
   component: RootComponent,
 });
+
+function UserMenu() {
+  const { user } = useUser();
+
+  if (!user) {
+    return (
+      <SignInButton mode="modal">
+        <button className="btn btn-sm btn-primary">Sign In</button>
+      </SignInButton>
+    );
+  }
+
+  return <UserButton />;
+}
 
 function RootComponent() {
   const { queryClient, convexClient: convex } = Route.useRouteContext();
@@ -96,9 +112,20 @@ function RootComponent() {
                       >
                         Usage
                       </Link>
+                      <Link
+                        to="/reports"
+                        className="btn btn-ghost"
+                        activeProps={{
+                          className: "btn btn-ghost btn-active",
+                        }}
+                        onClick={() => setIsSidebarOpen(false)}
+                      >
+                        Reports
+                      </Link>
                     </nav>
                   </div>
-                  <div className="navbar-end">
+                  <div className="navbar-end gap-2">
+                    <UserMenu />
                     <Link to="/" className="btn btn-ghost btn-circle">
                       <img src="/code-bloom.svg" alt="Code Bloom" className="w-8 h-8" />
                     </Link>
@@ -159,7 +186,22 @@ function RootComponent() {
                           Usage
                         </Link>
                       </li>
+                      <li>
+                        <Link
+                          to="/reports"
+                          onClick={() => setIsSidebarOpen(false)}
+                          activeProps={{
+                            className: "active",
+                          }}
+                          className="flex items-center p-2"
+                        >
+                          Reports
+                        </Link>
+                      </li>
                     </ul>
+                  </div>
+                  <div className="mt-auto p-4 border-t border-base-300">
+                    <UserMenu />
                   </div>
                 </div>
               </div>
