@@ -11,11 +11,12 @@
 
 ## Git Workflow
 
-- Create frequent small commits for each unit of work: `git add -A && git commit -m "[action]: [specific description]"`
-- Maintain @claude-notes.md with current context, progress, and next steps - commit this file with each checkpoint
+- **COMMIT AFTER EACH USER REQUEST**: When completing what the user asked for, immediately commit: `git add -A && git commit -m "[action]: [what was accomplished]"`
+- Commits are restore points - if user says "let's go back to before X", you can easily revert
+- Commits should happen WITHOUT asking - they're for checkpoints, not cleanliness (will be squashed later)
+- **ALWAYS update claude-notes.md and include it in EVERY commit** - this preserves context so future Claude Code sessions can continue from any restore point
 - When feature complete and user approves: `git reset --soft [first-commit-of-feature]` then clear the claude-notes file and `git commit -m "feat: [complete feature description]"`
-- Never push without user confirmation
-- Before major feature work: Tell user "Starting [feature], will make frequent small commits then squash when complete"
+- Before major feature work: Tell user "Starting [feature], will make frequent commits as checkpoints then squash when complete"
 - Claude Code notes file should include:
   - Current feature being worked on
   - Progress status and next steps
@@ -104,6 +105,7 @@
 - Search params as filters: validate with zod schema in route definition
 - Navigate programmatically: `const navigate = useNavigate()` then `navigate({ to: '/path' })`
 - Type-safe links: always use `<Link to="/path">` not `<a href>`
+- Nested routes require parent to have `<Outlet />`, use `.index.tsx` files to show content at parent paths
 
 ## TanStack Query + Convex Integration
 
