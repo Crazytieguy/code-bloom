@@ -104,6 +104,57 @@ cd {repoName}`}
         </div>
       </div>
 
+      <div className="divider my-8"></div>
+
+      <div>
+        <h2>Custom Commands</h2>
+        <p>This template includes several custom commands that can be run through Claude Code to help you get started:</p>
+        
+        <div className="alert alert-info mt-4 mb-6">
+          <div>
+            <strong>Usage:</strong> Copy any command below and paste it into Claude Code's input to run the corresponding workflow.
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="not-prose">
+            <h3 className="text-lg font-semibold mb-2">Initialize Application</h3>
+            <p className="mb-3">Set up a new application with dependencies, Convex backend, and development servers. <em>(This runs automatically when you run <code>pnpm run init</code>)</em></p>
+            <InteractiveCodeBlock
+              language="text"
+              template="/project:init-app"
+            />
+          </div>
+
+          <div className="not-prose">
+            <h3 className="text-lg font-semibold mb-2">Customize Theme</h3>
+            <p className="mb-3">Modify the application's color scheme and styling to match your preferences.</p>
+            <InteractiveCodeBlock
+              language="text"
+              template="/project:customize-theme"
+            />
+          </div>
+
+          <div className="not-prose">
+            <h3 className="text-lg font-semibold mb-2">Deploy to Vercel</h3>
+            <p className="mb-3">Configure and deploy your application to Vercel with proper environment variables.</p>
+            <InteractiveCodeBlock
+              language="text"
+              template="/project:deploy-vercel"
+            />
+          </div>
+
+          <div className="not-prose">
+            <h3 className="text-lg font-semibold mb-2">Generate Report</h3>
+            <p className="mb-3">Create a comprehensive project report that can be shared with the community.</p>
+            <InteractiveCodeBlock
+              language="text"
+              template="/project:generate-report"
+            />
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

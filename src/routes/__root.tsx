@@ -79,6 +79,9 @@ function RootComponent() {
                     >
                       <Menu className="w-5 h-5" />
                     </label>
+                    <Link to="/" className="btn btn-ghost btn-circle">
+                      <img src="/code-bloom.svg" alt="Code Bloom" className="w-8 h-8" />
+                    </Link>
                   </div>
                   <div className="navbar-center hidden lg:flex">
                     <nav className="flex">
@@ -124,11 +127,8 @@ function RootComponent() {
                       </Link>
                     </nav>
                   </div>
-                  <div className="navbar-end gap-2">
+                  <div className="navbar-end">
                     <UserMenu />
-                    <Link to="/" className="btn btn-ghost btn-circle">
-                      <img src="/code-bloom.svg" alt="Code Bloom" className="w-8 h-8" />
-                    </Link>
                   </div>
                 </header>
                 {/* Main content */}

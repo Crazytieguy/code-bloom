@@ -47,12 +47,35 @@ export const list = query({
       .order("desc")
       .paginate(args.paginationOpts);
 
+    const identity = await ctx.auth.getUserIdentity();
+    let currentUser = null;
+    if (identity) {
+      currentUser = await ctx.db
+        .query("users")
+        .withIndex("by_clerkId", (q) => q.eq("clerkId", identity.subject))
+        .unique();
+    }
+
     const reportsWithUsers = await Promise.all(
       reports.page.map(async (report) => {
         const user = await ctx.db.get(report.userId);
+        
+        let hasPlussed = false;
+        if (currentUser) {
+          const existingPlus = await ctx.db
+            .query("reportPluses")
+            .withIndex("by_user_and_report", (q) =>
+              q.eq("userId", currentUser._id).eq("reportId", report._id)
+            )
+            .unique();
+          
+          hasPlussed = !!existingPlus;
+        }
+        
         return {
           ...report,
           userName: user?.name || "Unknown User",
+          hasPlussed,
         };
       })
     );

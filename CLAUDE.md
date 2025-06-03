@@ -155,6 +155,7 @@
 - Responsive patterns: `lg:menu-horizontal`, `sm:card-horizontal`
 - Prefer daisyUI colors (`bg-primary`) over Tailwind colors (`bg-blue-500`) for theme consistency
 - Use `*-content` colors for text on colored backgrounds
+- Typography plugin adds default margins to headings (h1, h2, h3, etc.) - use `mt-0` to override when precise spacing is needed
 
 ### Color System
 

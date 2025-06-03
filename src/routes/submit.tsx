@@ -107,7 +107,7 @@ Brief description of what happened during your Claude Code session...
 
         <div className="card bg-base-200">
           <div className="card-body">
-            <h3 className="card-title mb-4">Report Format</h3>
+            <h3 className="card-title mt-0">Report Format</h3>
             <div className="prose prose-sm max-w-none">
               <ul>
                 <li>Start with a heading: <code># Your Main Learning or Takeaway</code></li>

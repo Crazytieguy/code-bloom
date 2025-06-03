@@ -87,7 +87,7 @@ function ReportView() {
           <div className="divider"></div>
 
           <div className="prose prose-invert max-w-none">
-            <ReactMarkdown>{report.content}</ReactMarkdown>
+            <ReactMarkdown>{report.content.replace(/^#\s+.*\n/, '')}</ReactMarkdown>
           </div>
         </div>
       </article>

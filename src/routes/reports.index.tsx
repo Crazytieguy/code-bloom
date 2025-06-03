@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { usePaginatedQuery } from "convex/react";
+import { usePaginatedQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { useClerk } from "@clerk/clerk-react";
+import { Plus } from "lucide-react";
+import { Id } from "../../convex/_generated/dataModel";
+import { useState } from "react";
 
 export const Route = createFileRoute("/reports/")({
   component: ReportsList,
@@ -14,6 +17,28 @@ function ReportsList() {
     {},
     { initialNumItems: 10 }
   );
+  const togglePlus = useMutation(api.reports.togglePlus);
+  const [togglingIds, setTogglingIds] = useState<Set<string>>(new Set());
+
+  const handleTogglePlus = async (e: React.MouseEvent, reportId: string) => {
+    e.preventDefault(); // Prevent navigation when clicking plus button
+    e.stopPropagation();
+    
+    if (!user || togglingIds.has(reportId)) return;
+    
+    setTogglingIds(prev => new Set(prev).add(reportId));
+    try {
+      await togglePlus({ reportId: reportId as Id<"reports"> });
+    } catch (error) {
+      console.error("Failed to toggle plus:", error);
+    } finally {
+      setTogglingIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(reportId);
+        return newSet;
+      });
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -50,16 +75,15 @@ function ReportsList() {
         <>
           <div className="grid gap-6">
             {results.map((report) => (
-              <Link
-                key={report._id}
-                to="/reports/$reportId"
-                params={{ reportId: report._id }}
-                className="card bg-base-200 hover:bg-base-300 transition-colors"
-              >
+              <div key={report._id} className="card bg-base-200 hover:bg-base-300 transition-colors">
                 <div className="card-body">
                   <div className="flex justify-between items-start gap-4">
-                    <div className="flex-1">
-                      <h2 className="card-title text-xl mb-2">{report.title}</h2>
+                    <Link
+                      to="/reports/$reportId"
+                      params={{ reportId: report._id }}
+                      className="flex-1 min-w-0"
+                    >
+                      <h2 className="card-title text-xl mb-2 mt-0">{report.title}</h2>
                       <p className="text-base-content/70 mb-3 line-clamp-2">
                         {report.description}
                       </p>
@@ -68,16 +92,21 @@ function ReportsList() {
                         <span>•</span>
                         <span>{new Date(report._creationTime).toLocaleDateString()}</span>
                       </div>
-                    </div>
+                    </Link>
                     <div className="flex items-center gap-2 shrink-0">
-                      <div className="badge badge-lg gap-2">
-                        <span className="text-lg">+</span>
+                      <button
+                        onClick={(e) => handleTogglePlus(e, report._id)}
+                        disabled={!user || togglingIds.has(report._id)}
+                        className={`btn ${report.hasPlussed ? "btn-primary" : "btn-outline"} btn-sm gap-2`}
+                        title={user ? "Click to plus this report" : "Sign in to plus"}
+                      >
+                        <Plus className="w-4 h-4" />
                         <span>{report.plusCount}</span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
 

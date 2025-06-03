@@ -1,33 +1,27 @@
-# Claude Notes - Information Sharing Feature
+# Claude Notes - Template Customization
 
-## Current Feature: Community Reports
-Implementing a community-driven information sharing system where users can:
-- Share their Claude Code experiences as markdown reports
-- View and "plus" (upvote) other users' reports
-- Browse reports sorted by popularity
+## Current Session: Usage Page Enhancement
+Added documentation for custom commands to the usage page to help users understand available /project: commands.
 
-## Implementation Progress:
-✅ Created Convex schema for reports with user relationships
-✅ Implemented CRUD operations for reports in Convex
-✅ Created report submission page with markdown parsing
-✅ Created reports list page with pagination
-✅ Created individual report view page with markdown rendering
-✅ Implemented plus/upvote functionality
-✅ Added authentication integration with Clerk
-✅ Updated navigation to include Reports section
-✅ Added Community Reports section to home page
+## What Was Done:
+✅ Added custom commands section to usage page (`src/routes/usage.tsx`)
+✅ Documented four main commands: init-app, customize-theme, deploy-vercel, generate-report
+✅ Used InteractiveCodeBlock components for copyable commands
+✅ Added clear descriptions and usage instructions
+✅ Committed changes with appropriate git message
 
-## Technical Details:
-- Reports use markdown format with specific structure:
-  - Title from first heading (#)
-  - Description from first paragraph
-  - Full content stored and rendered with react-markdown
-- Plus/upvote system tracks unique user votes
-- Reports sorted by plusCount in descending order
-- Authentication required for submitting and plussing reports
+## Previous Session: Custom Command Creation
+Created a custom Claude Code slash command for generating session reports focused on collaboration insights.
+
+✅ Created `/generate-report` command at `.claude/commands/generate-report.md`
+✅ Designed command to extract generalizable lessons about Claude Code workflows
+✅ Focused on human-AI collaboration patterns rather than specific implementation details
+✅ Made command terse and non-prescriptive to allow contextual adaptation
+
+## Files Updated:
+- `src/routes/usage.tsx` - Added custom commands section with documentation
+- Previous: `.claude/commands/generate-report.md` - Custom report generation command
 
 ## Next Steps:
-- User can test the feature by signing in and creating reports
-- Consider adding user profile pages to see all reports by a user
-- Could add search/filter functionality for reports
-- Consider adding categories or tags for reports
+- Template is ready with comprehensive usage documentation
+- Users can discover and use custom commands through the usage page
