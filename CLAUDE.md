@@ -11,13 +11,15 @@
 
 ## Git Workflow
 
-- **COMMIT AFTER EACH USER REQUEST**: When completing what the user asked for, immediately commit: `git add -A && git commit -m "[action]: [what was accomplished]"`
-- Commits are restore points - if user says "let's go back to before X", you can easily revert
+- **Commit after each user request**: When completing what the user asked for, immediately commit: `git add -A && git commit -m "[action]: [what was accomplished]"`
 - Commits should happen WITHOUT asking - they're for checkpoints, not cleanliness (will be squashed later)
+- Commits are restore points - if user says something like "let's go back to before X" or "Lets undo that", find the appropriate commit and run `git reset --hard [commit-hash]` to restore the state.
 - **ALWAYS update claude-notes.md and include it in EVERY commit** - this preserves context so future Claude Code sessions can continue from any restore point
-- When feature complete and user approves: `git reset --soft [first-commit-of-feature]` then clear the claude-notes file and `git commit -m "feat: [complete feature description]"`
+- Record starting commit hash and list session commits in claude-notes.md for safe squashing
+- When feature complete and user approves or asks to push perform a squash: run linting first, then `git reset --soft [starting-commit]` then CLEAR claude-notes.md and commit with `"feat: [complete feature description]"`
 - Before major feature work: Tell user "Starting [feature], will make frequent commits as checkpoints then squash when complete"
 - Claude Code notes file should include:
+  - Session start commit hash and list of session commits
   - Current feature being worked on
   - Progress status and next steps
   - Important context or decisions made
