@@ -53,24 +53,16 @@ function WindowsSetup() {
         <div className="flex items-center gap-3 mb-4">
           <div className="badge badge-primary badge-lg">1</div>
           <Terminal className="w-6 h-6 text-primary" />
-          <h2 className="text-xl font-semibold">Install WSL</h2>
+          <h2 className="text-xl font-semibold">Install Windows Terminal</h2>
         </div>
         <div className="ml-12">
-          <p className="mb-4">WSL provides a Linux environment within Windows for development:</p>
-          <div className="not-prose space-y-3">
+          <p className="mb-4">A modern terminal for Windows with better WSL support:</p>
+          <div className="not-prose">
             <div className="alert alert-info">
               <div>
-                <strong>Reference:</strong>{" "}
-                <a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment" target="_blank" rel="noopener noreferrer" className="link">
-                  Microsoft WSL Setup Guide
-                </a>
-              </div>
-            </div>
-            <div className="alert alert-info">
-              <div>
-                <strong>VS Code Integration:</strong>{" "}
-                <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener noreferrer" className="link">
-                  WSL with VS Code Tutorial
+                <strong>Download:</strong>{" "}
+                <a href="https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US" target="_blank" rel="noopener noreferrer" className="link">
+                  Windows Terminal on Microsoft Store
                 </a>
               </div>
             </div>
@@ -81,6 +73,27 @@ function WindowsSetup() {
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
           <div className="badge badge-primary badge-lg">2</div>
+          <Terminal className="w-6 h-6 text-primary" />
+          <h2 className="text-xl font-semibold">Install WSL</h2>
+        </div>
+        <div className="ml-12">
+          <p className="mb-4">WSL provides a Linux environment within Windows for development:</p>
+          <div className="not-prose">
+            <div className="alert alert-info">
+              <div>
+                <strong>Reference:</strong>{" "}
+                <a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment" target="_blank" rel="noopener noreferrer" className="link">
+                  Microsoft WSL Setup Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="not-prose">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="badge badge-primary badge-lg">3</div>
           <Github className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Create GitHub account</h2>
         </div>
@@ -91,23 +104,40 @@ function WindowsSetup() {
 
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
-          <div className="badge badge-primary badge-lg">3</div>
+          <div className="badge badge-primary badge-lg">4</div>
           <Code className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Install VS Code</h2>
         </div>
         <div className="ml-12">
-          <p>Download from <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" className="link">code.visualstudio.com</a></p>
+          <p className="mb-4">Download from <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" className="link">code.visualstudio.com</a></p>
+          <div className="not-prose">
+            <div className="alert alert-info">
+              <div>
+                <strong>WSL Integration:</strong>{" "}
+                <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener noreferrer" className="link">
+                  Set up VS Code with WSL
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
-          <div className="badge badge-primary badge-lg">4</div>
+          <div className="badge badge-primary badge-lg">5</div>
           <Download className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Install pnpm</h2>
         </div>
         <div className="ml-12">
-          <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+          <div className="space-y-3">
+            <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+            <div className="alert alert-info">
+              <div>
+                <strong>Important:</strong> After installation, copy and paste the last line from the command output back into your terminal to start using pnpm.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -154,7 +184,7 @@ git config --global user.email "{userEmail}"`}
 
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
-          <div className="badge badge-primary badge-lg">8</div>
+          <div className="badge badge-primary badge-lg">9</div>
           <FolderPlus className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Create projects directory</h2>
         </div>
@@ -165,7 +195,7 @@ git config --global user.email "{userEmail}"`}
 
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
-          <div className="badge badge-primary badge-lg">9</div>
+          <div className="badge badge-primary badge-lg">10</div>
           <Search className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Install ripgrep</h2>
           <div className="badge badge-outline badge-lg">Optional</div>
@@ -223,7 +253,14 @@ function MacOSSetup() {
           <h2 className="text-xl font-semibold">Install pnpm</h2>
         </div>
         <div className="ml-12">
-          <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+          <div className="space-y-3">
+            <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+            <div className="alert alert-info">
+              <div>
+                <strong>Important:</strong> After installation, copy and paste the last line from the command output back into your terminal to start using pnpm.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -328,7 +365,14 @@ function LinuxSetup() {
           <h2 className="text-xl font-semibold">Install pnpm</h2>
         </div>
         <div className="ml-12">
-          <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+          <div className="space-y-3">
+            <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
+            <div className="alert alert-info">
+              <div>
+                <strong>Important:</strong> After installation, copy and paste the last line from the command output back into your terminal to start using pnpm.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
