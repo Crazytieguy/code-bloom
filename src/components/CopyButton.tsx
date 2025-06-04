@@ -21,7 +21,7 @@ export function CopyButton({ text, className = "" }: CopyButtonProps) {
 
   return (
     <button
-      onClick={handleCopy}
+      onClick={() => void handleCopy()}
       className={`btn btn-sm btn-ghost ${className}`}
       title="Copy to clipboard"
     >

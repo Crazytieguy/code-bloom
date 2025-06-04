@@ -1,15 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, Settings, Users } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
-import { useClerk } from "@clerk/clerk-react";
+import { Authenticated, Unauthenticated } from "convex/react";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
 function HomePage() {
-  const { user } = useClerk();
-  
   return (
     <div className="text-center">
       <div className="not-prose flex justify-center mb-4">
@@ -70,17 +68,18 @@ function HomePage() {
               <Link to="/reports" className="btn btn-primary">
                 Browse Reports
               </Link>
-              {user ? (
+              <Authenticated>
                 <Link to="/submit" className="btn btn-outline">
                   Share Your Experience
                 </Link>
-              ) : (
+              </Authenticated>
+              <Unauthenticated>
                 <SignInButton mode="modal">
                   <button className="btn btn-outline">
                     Sign In to Share
                   </button>
                 </SignInButton>
-              )}
+              </Unauthenticated>
             </div>
           </div>
         </div>

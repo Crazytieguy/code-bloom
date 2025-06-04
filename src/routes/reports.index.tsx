@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { usePaginatedQuery, useMutation } from "convex/react";
+import { usePaginatedQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { useClerk } from "@clerk/clerk-react";
 import { Plus } from "lucide-react";
 import { Id } from "../../convex/_generated/dataModel";
 import { useState } from "react";
@@ -11,7 +10,7 @@ export const Route = createFileRoute("/reports/")({
 });
 
 function ReportsList() {
-  const { user } = useClerk();
+  const { isAuthenticated } = useConvexAuth();
   const { results, status, loadMore } = usePaginatedQuery(
     api.reports.list,
     {},
@@ -24,7 +23,7 @@ function ReportsList() {
     e.preventDefault(); // Prevent navigation when clicking plus button
     e.stopPropagation();
     
-    if (!user || togglingIds.has(reportId)) return;
+    if (!isAuthenticated || togglingIds.has(reportId)) return;
     
     setTogglingIds(prev => new Set(prev).add(reportId));
     try {
@@ -49,7 +48,7 @@ function ReportsList() {
             Learn from others' experiences with Claude Code
           </p>
         </div>
-        {user && (
+        {isAuthenticated && (
           <Link to="/submit" className="btn btn-primary">
             Share Your Experience
           </Link>
@@ -63,7 +62,7 @@ function ReportsList() {
       ) : results.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-base-content/70 mb-4">No reports yet. Be the first to share!</p>
-          {user ? (
+          {isAuthenticated ? (
             <Link to="/submit" className="btn btn-primary">
               Create First Report
             </Link>
@@ -95,10 +94,10 @@ function ReportsList() {
                     </Link>
                     <div className="flex items-center gap-2 shrink-0">
                       <button
-                        onClick={(e) => handleTogglePlus(e, report._id)}
-                        disabled={!user || togglingIds.has(report._id)}
+                        onClick={(e) => void handleTogglePlus(e, report._id)}
+                        disabled={!isAuthenticated || togglingIds.has(report._id)}
                         className={`btn ${report.hasPlussed ? "btn-primary" : "btn-outline"} btn-sm gap-2`}
-                        title={user ? "Click to plus this report" : "Sign in to plus"}
+                        title={isAuthenticated ? "Click to plus this report" : "Sign in to plus"}
                       >
                         <Plus className="w-4 h-4" />
                         <span>{report.plusCount}</span>

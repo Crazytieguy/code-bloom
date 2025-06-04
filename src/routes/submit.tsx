@@ -1,15 +1,13 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
+import { useMutation, Authenticated, Unauthenticated, AuthLoading } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { useState } from "react";
-import { useClerk } from "@clerk/clerk-react";
 
 export const Route = createFileRoute("/submit")({
   component: SubmitReport,
 });
 
 function SubmitReport() {
-  const { user } = useClerk();
   const navigate = useNavigate();
   const createReport = useMutation(api.reports.create);
   const [markdown, setMarkdown] = useState("");
@@ -55,7 +53,7 @@ function SubmitReport() {
     try {
       const { title, description, content } = parseMarkdown(markdown);
       await createReport({ title, description, content });
-      navigate({ to: "/reports" });
+      void navigate({ to: "/reports" });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to submit report");
     } finally {
@@ -63,31 +61,37 @@ function SubmitReport() {
     }
   };
 
-  if (!user) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-        <h2 className="text-2xl font-bold mb-4">Sign in to Share Your Experience</h2>
-        <p className="text-base-content/70 mb-6">
-          Join the Code Bloom community to share your Claude Code experiences
-        </p>
-        <button 
-          onClick={() => navigate({ to: "/" })}
-          className="btn btn-primary"
-        >
-          Go to Home
-        </button>
-      </div>
-    );
-  }
-
   return (
+    <>
+      <AuthLoading>
+        <div className="flex justify-center items-center min-h-[60vh]">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      </AuthLoading>
+      
+      <Unauthenticated>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+          <h2 className="text-2xl font-bold mb-4">Sign in to Share Your Experience</h2>
+          <p className="text-base-content/70 mb-6">
+            Join the Code Bloom community to share your Claude Code experiences
+          </p>
+          <button 
+            onClick={() => void navigate({ to: "/" })}
+            className="btn btn-primary"
+          >
+            Go to Home
+          </button>
+        </div>
+      </Unauthenticated>
+
+      <Authenticated>
     <div className="max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-2">Share Your Experience</h1>
       <p className="text-base-content/70 mb-8">
         Help others learn from your Claude Code session
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={(e) => void handleSubmit(e)} className="space-y-6">
         <div>
           <label className="label">
             <span className="label-text">Your Report (Markdown)</span>
@@ -141,7 +145,7 @@ Brief description of what happened during your Claude Code session...
           </button>
           <button
             type="button"
-            onClick={() => navigate({ to: "/reports" })}
+            onClick={() => void navigate({ to: "/reports" })}
             className="btn btn-ghost"
           >
             Cancel
@@ -149,5 +153,7 @@ Brief description of what happened during your Claude Code session...
         </div>
       </form>
     </div>
+      </Authenticated>
+    </>
   );
 }

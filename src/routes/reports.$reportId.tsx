@@ -1,8 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Id } from "../../convex/_generated/dataModel";
-import { useClerk } from "@clerk/clerk-react";
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Plus } from "lucide-react";
@@ -13,7 +12,7 @@ export const Route = createFileRoute("/reports/$reportId")({
 
 function ReportView() {
   const { reportId } = Route.useParams();
-  const { user } = useClerk();
+  const { isAuthenticated } = useConvexAuth();
   const navigate = useNavigate();
   const report = useQuery(api.reports.get, { reportId: reportId as Id<"reports"> });
   const togglePlus = useMutation(api.reports.togglePlus);
@@ -29,7 +28,7 @@ function ReportView() {
   }, [report]);
 
   const handleTogglePlus = async () => {
-    if (!user) {
+    if (!isAuthenticated) {
       // Could redirect to sign in or show a message
       return;
     }
@@ -74,10 +73,10 @@ function ReportView() {
               </div>
             </div>
             <button
-              onClick={handleTogglePlus}
-              disabled={!user || isToggling}
+              onClick={() => void handleTogglePlus()}
+              disabled={!isAuthenticated || isToggling}
               className={`btn ${hasPlussed ? "btn-primary" : "btn-outline"} gap-2`}
-              title={user ? "Click to plus this report" : "Sign in to plus"}
+              title={isAuthenticated ? "Click to plus this report" : "Sign in to plus"}
             >
               <Plus className="w-5 h-5" />
               <span>{plusCount}</span>
@@ -92,12 +91,12 @@ function ReportView() {
         </div>
       </article>
 
-      {!user && (
+      {!isAuthenticated && (
         <div className="card bg-base-300 mt-6">
           <div className="card-body text-center">
             <p className="mb-4">Sign in to plus this report or share your own experience</p>
             <button 
-              onClick={() => navigate({ to: "/" })}
+              onClick={() => void navigate({ to: "/" })}
               className="btn btn-primary btn-sm"
             >
               Go to Home to Sign In
