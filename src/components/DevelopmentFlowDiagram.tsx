@@ -127,7 +127,7 @@ const flowSteps: FlowStep[] = [
     title: "GitHub",
     description: "Version control & collaboration. Stores your code in the cloud so you never lose it.",
     icon: Github,
-    color: "bg-neutral",
+    color: "bg-base-content",
     connections: ["filesystem", "vercel"]
   },
   {
@@ -167,7 +167,7 @@ const flowSteps: FlowStep[] = [
     title: "Anthropic Servers",
     description: "AI brain in the cloud. Powers Claude's intelligence and code suggestions.",
     icon: AnthropicIcon,
-    color: "bg-secondary",
+    color: "bg-error",
     connections: ["claudecode"]
   },
   {
@@ -183,7 +183,7 @@ const flowSteps: FlowStep[] = [
     title: "Convex (Dev)",
     description: "Backend database & API during development. Stores and manages your app's data.",
     icon: ConvexIcon,
-    color: "bg-info",
+    color: "bg-secondary",
     connections: ["browser-dev", "convex-prod"]
   },
   {
@@ -191,7 +191,7 @@ const flowSteps: FlowStep[] = [
     title: "Clerk Auth",
     description: "User authentication service. Handles sign-ups, logins, and keeps accounts secure.",
     icon: ClerkIcon,
-    color: "bg-accent",
+    color: "bg-info",
     connections: ["browser-dev", "browser-user"]
   },
   {
@@ -207,7 +207,7 @@ const flowSteps: FlowStep[] = [
     title: "Vercel",
     description: "Deployment platform. Takes your code from GitHub and makes it live on the internet.",
     icon: VercelIcon,
-    color: "bg-base-300",
+    color: "bg-neutral",
     connections: ["github", "namecheap", "browser-user"]
   },
   {
@@ -223,7 +223,7 @@ const flowSteps: FlowStep[] = [
     title: "Convex (Production)",
     description: "Live backend database. Handles real user data securely in the cloud.",
     icon: ConvexIcon,
-    color: "bg-info",
+    color: "bg-accent",
     connections: ["browser-user", "convex-dev"]
   },
   {
@@ -231,7 +231,7 @@ const flowSteps: FlowStep[] = [
     title: "End User's Browser",
     description: "Where people use your finished app. The final destination of all your hard work!",
     icon: ChromeIcon,
-    color: "bg-success",
+    color: "bg-error",
     connections: ["vercel", "convex-prod", "clerk", "namecheap"]
   }
 ];
