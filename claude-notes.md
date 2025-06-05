@@ -4,7 +4,7 @@
 - Starting commit: 967e064
 - Session commits:
   - 7db1427 feat: add interactive development flow diagram to home page
-  - Updated diagram with custom logos and side panel layout
+  - d8b0928 feat: enhance DevelopmentFlowDiagram with custom logos and UI improvements
 
 ## Current Work
 - Working on Code Bloom template project
@@ -20,9 +20,10 @@
   - Cloud services (GitHub, Vercel, Convex, Clerk, etc.)
   - How everything connects together
   - Click-to-explore functionality
-  - Side panel for connection flow (desktop view)
-  - Custom Vercel and Namecheap logos
-  - Moved below page links as requested
+  - Side panel for connection flow (always visible, left-aligned text)
+  - Custom logos for: Convex, Anthropic, Node.js, Claude Code, Chrome, Vite, Clerk
+  - Brighter colors for File System (bg-info) and Terminal (bg-accent)
+  - Default selected state prevents layout shift
 
 ## Important Context
 - Using Convex for backend with auth configured
