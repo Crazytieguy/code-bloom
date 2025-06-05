@@ -5,7 +5,7 @@
 - Session commits:
   - 7db1427 feat: add interactive development flow diagram to home page
   - c99c9d2 update: custom logos and side panel layout for development flow diagram
-  - Latest: fixed duplicate icon issues and implemented all custom logos
+  - 205cc1f feat: update Clerk icon and make all icons black for consistent design
 
 ## Current Work
 - Working on Code Bloom template project
