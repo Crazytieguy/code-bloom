@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, Settings, Users } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
 import { Authenticated, Unauthenticated } from "convex/react";
+import { DevelopmentFlowDiagram } from "@/components/DevelopmentFlowDiagram";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -17,6 +18,8 @@ function HomePage() {
       <p className="text-xl opacity-80 mb-8">
         A complete TypeScript stack with React, Vite, TanStack Router, Convex, and Clerk
       </p>
+
+      <DevelopmentFlowDiagram />
 
       <div className="not-prose grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
         <div className="card bg-base-200 shadow-md">
