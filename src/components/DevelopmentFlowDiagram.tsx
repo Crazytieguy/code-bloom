@@ -18,6 +18,46 @@ import {
   Sparkles
 } from "lucide-react";
 
+const VercelIcon = () => (
+  <svg data-testid="geist-icon" height="24" strokeLinejoin="round" style={{color:"currentColor"}} viewBox="0 0 16 16" width="24">
+    <path fillRule="evenodd" clipRule="evenodd" d="M8 1L16 15H0L8 1Z" fill="currentColor"></path>
+  </svg>
+);
+
+const NamecheapIcon = () => (
+  <svg width="24" height="24" viewBox="0 -57 256 256" preserveAspectRatio="xMidYMid">
+    <defs>
+        <linearGradient x1="13.3220455%" y1="94.9449067%" x2="82.6195455%" y2="1.13156385%" id="linearGradient-1">
+            <stop stopColor="#D4202C" offset="0%"></stop>
+            <stop stopColor="#D82D2B" stopOpacity="0.9583" offset="4.166156%"></stop>
+            <stop stopColor="#E25226" stopOpacity="0.824" offset="17.6%"></stop>
+            <stop stopColor="#EB7123" stopOpacity="0.6833" offset="31.67%"></stop>
+            <stop stopColor="#F28920" stopOpacity="0.5365" offset="46.35%"></stop>
+            <stop stopColor="#F69A1E" stopOpacity="0.3812" offset="61.88%"></stop>
+            <stop stopColor="#F9A41D" stopOpacity="0.2114" offset="78.86%"></stop>
+            <stop stopColor="#FAA71D" stopOpacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="86.6243182%" y1="5.04045911%" x2="17.3261364%" y2="98.8545194%" id="linearGradient-2">
+            <stop stopColor="#D4202C" offset="0%"></stop>
+            <stop stopColor="#D82D2B" stopOpacity="0.9583" offset="4.166156%"></stop>
+            <stop stopColor="#E25226" stopOpacity="0.824" offset="17.6%"></stop>
+            <stop stopColor="#EB7123" stopOpacity="0.6833" offset="31.67%"></stop>
+            <stop stopColor="#F28920" stopOpacity="0.5365" offset="46.35%"></stop>
+            <stop stopColor="#F69A1E" stopOpacity="0.3812" offset="61.88%"></stop>
+            <stop stopColor="#F9A41D" stopOpacity="0.2114" offset="78.86%"></stop>
+            <stop stopColor="#FAA71D" stopOpacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g>
+        <path d="M232,0 C223,0 215.2,5 211.1,12.3 L210.6,13.3 L191.8,50.3 L168,97.2 L183.6,127.9 L184.5,129.6 C186.9,133.8 190.5,137.3 194.9,139.4 C199.3,137.2 202.9,133.8 205.3,129.6 L206.2,127.9 L252.9,35.9 L254,33.7 C255.3,30.7 256,27.5 256,24 C256,10.7 245.3,0 232,0 L232,0 Z" fill="#FF5000"></path>
+        <path d="M87.9,44.6 L72.4,14 L71.5,12.3 C69.1,8.1 65.5,4.6 61.1,2.5 C56.7,4.7 53.1,8.1 50.7,12.3 L49.9,14 L3.2,106 L2.1,108.2 C0.8,111.2 0.1,114.4 0.1,117.9 C0.1,131.1 10.8,141.9 24.1,141.9 C33.1,141.9 40.9,136.9 45,129.6 L45.5,128.6 L64.3,91.6 L88,44.7 L87.9,44.6 L87.9,44.6 Z" fill="#FF5000"></path>
+        <path d="M232,0 C223,0 215.1,5 211.1,12.3 L210.6,13.3 L191.8,50.3 L168,97.2 L183.6,127.9 L184.5,129.6 C186.9,133.8 190.5,137.3 194.9,139.4 C199.3,137.2 202.9,133.8 205.3,129.6 L206.2,127.9 L252.9,35.9 L254,33.7 C255.3,30.7 256,27.5 256,24 C256,10.7 245.2,0 232,0 L232,0 Z" fill="url(#linearGradient-1)"></path>
+        <path d="M24,141.9 C33,141.9 40.9,136.9 44.9,129.6 L45.4,128.6 L64.2,91.6 L88,44.7 L72.4,14 L71.5,12.3 C69.1,8.1 65.5,4.6 61.1,2.5 C56.7,4.7 53.1,8.1 50.7,12.3 L49.9,14 L3.2,106 L2,108.3 C0.7,111.3 0,114.5 0,118 C0,131.2 10.7,141.9 24,141.9 L24,141.9 Z" fill="url(#linearGradient-2)"></path>
+        <path d="M87.9,44.6 L72.4,14 L71.5,12.3 C69.1,8.1 65.5,4.6 61.1,2.5 C62.5,1.8 64.1,1.2 65.6,0.8 C67.5,0.3 69.6,0 71.6,0 L71.6,0 L104,0 L104.2,0 L104.4,0 C113.4,0.1 121.2,5 125.3,12.3 L126,14 L168.1,97.3 L183.6,127.9 L184.5,129.6 C186.9,133.8 190.5,137.3 194.9,139.4 C193.5,140.1 191.9,140.7 190.4,141.1 C188.5,141.6 186.4,141.9 184.3,141.9 L184.3,141.9 L152.1,141.9 L151.9,141.9 L151.7,141.9 C142.7,141.8 134.9,136.9 130.8,129.6 L129.9,127.9 L87.9,44.6 L87.9,44.6 Z" fill="#FF8C44"></path>
+    </g>
+  </svg>
+);
+
 type FlowStep = {
   id: string;
   title: string;
@@ -120,7 +160,7 @@ const flowSteps: FlowStep[] = [
     id: "vercel",
     title: "Vercel",
     description: "Deployment platform. Takes your code from GitHub and makes it live on the internet.",
-    icon: Globe,
+    icon: VercelIcon,
     color: "bg-base-300",
     connections: ["github", "namecheap", "browser-user"]
   },
@@ -128,8 +168,8 @@ const flowSteps: FlowStep[] = [
     id: "namecheap",
     title: "Namecheap",
     description: "Domain registrar. Gives your app a custom web address like 'myapp.com'.",
-    icon: Globe,
-    color: "bg-info",
+    icon: NamecheapIcon,
+    color: "bg-base-100",
     connections: ["vercel", "browser-user"]
   },
   {
@@ -167,63 +207,73 @@ export function DevelopmentFlowDiagram() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-        {flowSteps.map((step) => {
-          const Icon = step.icon;
-          const isActive = activeStep === step.id;
-          const isConnected = activeConnections.includes(step.id);
-          
-          return (
-            <div
-              key={step.id}
-              className={`
-                card cursor-pointer transition-all duration-300 
-                ${isActive ? 'ring-4 ring-primary scale-105 shadow-xl' : ''}
-                ${isConnected && !isActive ? 'ring-2 ring-primary/50 shadow-lg' : ''}
-                ${!isActive && !isConnected && activeStep ? 'opacity-50' : ''}
-                hover:shadow-lg
-              `}
-              onClick={() => setSelectedStep(selectedStep === step.id ? null : step.id)}
-              onMouseEnter={() => setHoveredStep(step.id)}
-              onMouseLeave={() => setHoveredStep(null)}
-            >
-              <div className="card-body">
-                <div className={`w-12 h-12 rounded-lg ${step.color} flex items-center justify-center mb-3`}>
-                  <Icon className="w-6 h-6 text-base-100" />
-                </div>
-                <h3 className="card-title text-base">{step.title}</h3>
-                <p className="text-sm opacity-80">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {selectedStep && (
-        <div className="mt-8 max-w-4xl mx-auto">
-          <div className="alert alert-info shadow-lg">
-            <div>
-              <h4 className="font-bold text-lg mb-2">Connection Flow:</h4>
-              <div className="space-y-2">
-                {getStepById(selectedStep)?.connections.map(connId => {
-                  const connectedStep = getStepById(connId);
-                  if (!connectedStep) return null;
-                  
-                  return (
-                    <div key={connId} className="flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4" />
-                      <span className="font-semibold">{connectedStep.title}:</span>
-                      <span className="text-sm opacity-80">{getConnectionDescription(selectedStep, connId)}</span>
+      <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
+        <div className="flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {flowSteps.map((step) => {
+              const Icon = step.icon;
+              const isActive = activeStep === step.id;
+              const isConnected = activeConnections.includes(step.id);
+              
+              return (
+                <div
+                  key={step.id}
+                  className={`
+                    card cursor-pointer transition-all duration-300 
+                    ${isActive ? 'ring-4 ring-primary scale-105 shadow-xl' : ''}
+                    ${isConnected && !isActive ? 'ring-2 ring-primary/50 shadow-lg' : ''}
+                    ${!isActive && !isConnected && activeStep ? 'opacity-50' : ''}
+                    hover:shadow-lg
+                  `}
+                  onClick={() => setSelectedStep(selectedStep === step.id ? null : step.id)}
+                  onMouseEnter={() => setHoveredStep(step.id)}
+                  onMouseLeave={() => setHoveredStep(null)}
+                >
+                  <div className="card-body">
+                    <div className={`w-12 h-12 rounded-lg ${step.color} flex items-center justify-center mb-3`}>
+                      {step.id === 'vercel' || step.id === 'namecheap' ? (
+                        <Icon />
+                      ) : (
+                        <Icon className="w-6 h-6 text-base-100" />
+                      )}
                     </div>
-                  );
-                })}
+                    <h3 className="card-title text-base">{step.title}</h3>
+                    <p className="text-sm opacity-80">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {selectedStep && (
+          <div className="lg:w-96">
+            <div className="card bg-info/10 border border-info/20 shadow-lg sticky top-4">
+              <div className="card-body">
+                <h4 className="card-title text-lg mb-4">Connection Flow</h4>
+                <div className="space-y-3">
+                  {getStepById(selectedStep)?.connections.map(connId => {
+                    const connectedStep = getStepById(connId);
+                    if (!connectedStep) return null;
+                    
+                    return (
+                      <div key={connId} className="flex items-start gap-3">
+                        <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <div className="font-semibold">{connectedStep.title}</div>
+                          <div className="text-sm opacity-80">{getConnectionDescription(selectedStep, connId)}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="mt-12 max-w-4xl mx-auto">
         <div className="card bg-base-200">

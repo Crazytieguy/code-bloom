@@ -19,8 +19,6 @@ function HomePage() {
         A complete TypeScript stack with React, Vite, TanStack Router, Convex, and Clerk
       </p>
 
-      <DevelopmentFlowDiagram />
-
       <div className="not-prose grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
         <div className="card bg-base-200 shadow-md">
           <div className="card-body">
@@ -87,6 +85,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      <DevelopmentFlowDiagram />
     </div>
   );
 }
