@@ -1,22 +1,10 @@
 import { useState } from "react";
 import { 
-  Code2, 
   Github, 
   HardDrive, 
   Terminal, 
-  Server, 
-  Globe, 
   Users, 
-  Cpu,
-  Cloud,
-  Shield,
-  Zap,
-  MonitorSmartphone,
-  ArrowRight,
-  ArrowLeft,
-  ArrowUpDown,
-  Sparkles,
-  Chrome
+  ArrowRight
 } from "lucide-react";
 
 const VercelIcon = () => (
@@ -60,53 +48,95 @@ const NamecheapIcon = () => (
 );
 
 const ConvexIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" fill="#F59E0B"/>
-    <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#EF4444"/>
-    <path d="M12 12L3 7V17L12 22V12Z" fill="#A855F7"/>
-    <path d="M12 12L21 7V17L12 22V12Z" fill="#F59E0B" opacity="0.8"/>
+  <svg width="24" height="24" viewBox="0 0 184 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M108.092 130.021C126.258 128.003 143.385 118.323 152.815 102.167C148.349 142.128 104.653 167.385 68.9858 151.878C65.6992 150.453 62.8702 148.082 60.9288 145.034C52.9134 132.448 50.2786 116.433 54.0644 101.899C64.881 120.567 86.8748 132.01 108.092 130.021Z" fill="#F3B01C"/>
+    <path d="M53.4012 90.1735C46.0375 107.191 45.7186 127.114 54.7463 143.51C22.9759 119.608 23.3226 68.4578 54.358 44.7949C57.2286 42.6078 60.64 41.3097 64.2178 41.1121C78.9312 40.336 93.8804 46.0225 104.364 56.6193C83.0637 56.831 62.318 70.4756 53.4012 90.1735Z" fill="#8D2676"/>
+    <path d="M114.637 61.8552C103.89 46.8701 87.0686 36.6684 68.6387 36.358C104.264 20.1876 148.085 46.4045 152.856 85.1654C153.3 88.7635 152.717 92.4322 151.122 95.6775C144.466 109.195 132.124 119.679 117.702 123.559C128.269 103.96 126.965 80.0151 114.637 61.8552Z" fill="#EE342F"/>
   </svg>
 );
 
 const AnthropicIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.335 2.063h-3.732l-6.106 20h3.732l1.483-5.093h5.957l1.483 5.093h3.732l-6.106-20h-.443zm-2.046 3.865h.301l2.168 7.46h-4.636l2.167-7.46z"/>
+  <svg version="1.1" width="24" height="24" viewBox="0 0 92.2 65" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#181818" d="M66.5,0H52.4l25.7,65h14.1L66.5,0z M25.7,0L0,65h14.4l5.3-13.6h26.9L51.8,65h14.4L40.5,0C40.5,0,25.7,0,25.7,0z M24.3,39.3l8.8-22.8l8.8,22.8H24.3z"/>
   </svg>
 );
 
 const NodejsIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M11.9998 2.14661C11.7915 2.14661 11.5915 2.22244 11.4332 2.35828L3.55817 7.39161C3.23317 7.62494 3.0415 7.99994 3.0415 8.39994V13.5999C3.0415 13.9999 3.23317 14.3749 3.55817 14.6083L11.4332 19.6416C11.7582 19.8749 12.2332 19.8749 12.5582 19.6416L20.4332 14.6083C20.7582 14.3749 20.9498 13.9999 20.9498 13.5999V8.39994C20.9498 7.99994 20.7582 7.62494 20.4332 7.39161L12.5582 2.35828C12.3998 2.22244 12.1998 2.14661 11.9998 2.14661Z" fill="#339933"/>
+  <svg width="24" height="24" viewBox="0 0 71 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clipPath="url(#clip0_337_7891)" fill="#5FA04E">
+      <path d="M35.625 79.5c-1.081 0-2.09-.288-3.028-.792l-9.59-5.686c-1.442-.792-.721-1.08-.289-1.224 1.947-.648 2.308-.792 4.327-1.944.216-.144.504-.072.72.072l7.356 4.391c.288.144.649.144.865 0l28.77-16.628c.289-.144.433-.431.433-.791V23.714c0-.36-.144-.648-.432-.792L35.986 6.366c-.288-.144-.65-.144-.865 0L6.35 22.922c-.29.144-.434.504-.434.792v33.184c0 .287.145.647.433.791l7.86 4.535c4.254 2.16 6.922-.36 6.922-2.879V26.593c0-.432.36-.864.865-.864h3.678c.432 0 .865.36.865.864v32.752c0 5.687-3.1 8.998-8.509 8.998-1.658 0-2.956 0-6.633-1.8l-7.572-4.319A6.073 6.073 0 0 1 .798 56.97V23.786a6.073 6.073 0 0 1 3.028-5.255l28.77-16.628c1.804-1.008 4.255-1.008 6.058 0l28.77 16.628a6.073 6.073 0 0 1 3.029 5.255V56.97a6.073 6.073 0 0 1-3.029 5.254l-28.77 16.628c-.865.36-1.947.648-3.029.648Z" />
+      <path d="M44.567 56.682c-12.62 0-15.215-5.759-15.215-10.654 0-.432.36-.864.865-.864h3.75c.433 0 .793.288.793.72.577 3.815 2.235 5.687 9.879 5.687 6.057 0 8.652-1.368 8.652-4.607 0-1.871-.72-3.24-10.167-4.175-7.86-.792-12.762-2.52-12.762-8.782 0-5.83 4.903-9.285 13.123-9.285 9.23 0 13.772 3.167 14.35 10.077 0 .216-.073.432-.217.648-.144.144-.36.288-.577.288h-3.822a.844.844 0 0 1-.793-.648c-.865-3.96-3.1-5.255-9.013-5.255-6.634 0-7.427 2.304-7.427 4.031 0 2.088.937 2.736 9.879 3.887 8.869 1.152 13.05 2.808 13.05 8.998 0 6.335-5.263 9.934-14.348 9.934Z" />
+    </g>
+    <defs><clipPath id="clip0_337_7891"><path fill="#fff" d="M0 .5h71v79H0z" /></clipPath></defs>
   </svg>
 );
 
-const ClaudeCodeIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <rect x="3" y="3" width="18" height="18" rx="4" fill="#FF6600"/>
-    <path d="M8 16L10.5 8H13.5L16 16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9.5 13H14.5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+const ClaudeIcon = () => (
+  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z" fill="#D97757" fillRule="nonzero"/>
+  </svg>
+);
+
+const ChromeIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="a" x1="3.2173" y1="15" x2="44.7812" y2="15" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stopColor="#d93025"/>
+        <stop offset="1" stopColor="#ea4335"/>
+      </linearGradient>
+      <linearGradient id="b" x1="20.7219" y1="47.6791" x2="41.5039" y2="11.6837" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stopColor="#fcc934"/>
+        <stop offset="1" stopColor="#fbbc04"/>
+      </linearGradient>
+      <linearGradient id="c" x1="26.5981" y1="46.5015" x2="5.8161" y2="10.506" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stopColor="#1e8e3e"/>
+        <stop offset="1" stopColor="#34a853"/>
+      </linearGradient>
+    </defs>
+    <circle cx="24" cy="23.9947" r="12" fill="#fff"/>
+    <path d="M3.2154,36A24,24,0,1,0,12,3.2154,24,24,0,0,0,3.2154,36ZM34.3923,18A12,12,0,1,1,18,13.6077,12,12,0,0,1,34.3923,18Z" fill="none"/>
+    <path d="M24,12H44.7812a23.9939,23.9939,0,0,0-41.5639.0029L13.6079,30l.0093-.0024A11.9852,11.9852,0,0,1,24,12Z" fill="url(#a)"/>
+    <circle cx="24" cy="24" r="9.5" fill="#1a73e8"/>
+    <path d="M34.3913,30.0029,24.0007,48A23.994,23.994,0,0,0,44.78,12.0031H23.9989l-.0025.0093A11.985,11.985,0,0,1,34.3913,30.0029Z" fill="url(#b)"/>
+    <path d="M13.6086,30.0031,3.218,12.006A23.994,23.994,0,0,0,24.0025,48L34.3931,30.0029l-.0067-.0068a11.9852,11.9852,0,0,1-20.7778.007Z" fill="url(#c)"/>
   </svg>
 );
 
 const ViteIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M21.906 4.903L12.49 21.66a.563.563 0 01-1.029 0L2.045 4.903a.563.563 0 01.544-.816l9.197 1.677a.562.562 0 00.202 0l9.374-1.677a.563.563 0 01.544.816z" fill="url(#vite-gradient)"/>
-    <path d="M15.907 2.768L10.428 3.66a.281.281 0 00-.237.325l1.099 6.251a.281.281 0 00.34.234l2.486-.547a.562.562 0 01.68.467l.421 2.403a.281.281 0 01-.383.317l-1.144-.471a.281.281 0 00-.389.256v.844a.281.281 0 00.15.249l3.195 1.677a.562.562 0 00.803-.35l1.985-9.365a.562.562 0 00-.527-.632z" fill="#FFD62E"/>
+  <svg width="24" height="24" viewBox="0 0 410 404" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M399.641 59.5246L215.643 388.545C211.844 395.338 202.084 395.378 198.228 388.618L10.5817 59.5563C6.38087 52.1896 12.6802 43.2665 21.0281 44.7586L205.223 77.6824C206.398 77.8924 207.601 77.8904 208.776 77.6763L389.119 44.8058C397.439 43.2894 403.768 52.1434 399.641 59.5246Z" fill="url(#paint0_linear)"/>
+    <path d="M292.965 1.5744L156.801 28.2552C154.563 28.6937 152.906 30.5903 152.771 32.8664L144.395 174.33C144.198 177.662 147.258 180.248 150.51 179.498L188.42 170.749C191.967 169.931 195.172 173.055 194.443 176.622L183.18 231.775C182.422 235.487 185.907 238.661 189.532 237.56L212.947 230.446C216.577 229.344 220.065 232.527 219.297 236.242L201.398 322.875C200.278 328.294 207.486 331.249 210.492 326.603L212.5 323.5L323.454 102.072C325.312 98.3645 322.108 94.137 318.036 94.9228L279.014 102.454C275.347 103.161 272.227 99.746 273.262 96.1583L298.731 7.86689C299.767 4.27314 296.636 0.855181 292.965 1.5744Z" fill="url(#paint1_linear)"/>
     <defs>
-      <linearGradient id="vite-gradient" x1="2.045" y1="4.087" x2="12.274" y2="22.097" gradientUnits="userSpaceOnUse">
+      <linearGradient id="paint0_linear" x1="6.00017" y1="32.9999" x2="235" y2="344" gradientUnits="userSpaceOnUse">
         <stop stopColor="#41D1FF"/>
         <stop offset="1" stopColor="#BD34FE"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear" x1="194.651" y1="8.81818" x2="236.076" y2="292.989" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FFEA83"/>
+        <stop offset="0.0833333" stopColor="#FFDD35"/>
+        <stop offset="1" stopColor="#FFA800"/>
       </linearGradient>
     </defs>
   </svg>
 );
 
 const ClerkIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" fill="#6366F1"/>
-    <path d="M12 6C8.686 6 6 8.686 6 12s2.686 6 6 6c1.647 0 3.14-.666 4.224-1.745l-1.414-1.414A3.982 3.982 0 0112 16c-2.206 0-4-1.794-4-4s1.794-4 4-4a3.982 3.982 0 012.81 1.159l1.414-1.414A5.972 5.972 0 0012 6z" fill="white"/>
+  <svg width="24" height="24" viewBox="0 0 77 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.116 3.1608L16.2354 6.04135C16.1449 6.13177 16.0266 6.18918 15.8996 6.20437C15.7725 6.21956 15.6441 6.19165 15.5348 6.12513C14.4017 5.44155 13.0949 5.10063 11.7722 5.14354C10.4495 5.18645 9.16759 5.61134 8.08114 6.36692C7.41295 6.83202 6.83276 7.41221 6.36765 8.0804C5.61297 9.16751 5.18848 10.4495 5.14524 11.7722C5.10201 13.0949 5.44187 14.4019 6.12395 15.536C6.19 15.6451 6.21764 15.7731 6.20246 15.8998C6.18728 16.0264 6.13015 16.1443 6.04018 16.2347L3.15962 19.1152C3.10162 19.1736 3.03168 19.2188 2.95459 19.2476C2.87751 19.2765 2.79511 19.2883 2.71302 19.2824C2.63093 19.2764 2.5511 19.2528 2.479 19.2131C2.40689 19.1734 2.34422 19.1186 2.29527 19.0524C0.736704 16.9101 -0.0687588 14.3121 0.0046021 11.6639C0.077963 9.01568 1.02602 6.46625 2.70079 4.41354C3.21208 3.78549 3.78622 3.21134 4.41428 2.70006C6.46683 1.02574 9.01589 0.0779624 11.6637 0.00460332C14.3115 -0.0687557 16.9091 0.736432 19.0512 2.29453C19.1179 2.34332 19.1731 2.40598 19.2131 2.47818C19.2532 2.55038 19.2771 2.6304 19.2833 2.71274C19.2895 2.79508 19.2777 2.87778 19.2488 2.95513C19.2199 3.03248 19.1746 3.10265 19.116 3.1608Z" fill="url(#paint0_linear_26568_214324)"/>
+    <path d="M19.1135 20.8289L16.2329 17.9483C16.1424 17.8579 16.0241 17.8005 15.8971 17.7853C15.7701 17.7701 15.6416 17.798 15.5323 17.8645C14.4639 18.509 13.2398 18.8497 11.9921 18.8497C10.7443 18.8497 9.52022 18.509 8.45181 17.8645C8.34252 17.798 8.21406 17.7701 8.08701 17.7853C7.95997 17.8005 7.84171 17.8579 7.75119 17.9483L4.87063 20.8289C4.81022 20.8869 4.76333 20.9576 4.73329 21.0358C4.70324 21.114 4.69078 21.1979 4.69678 21.2815C4.70277 21.3651 4.72708 21.4463 4.76799 21.5194C4.80889 21.5926 4.86538 21.6558 4.93346 21.7046C6.98391 23.1965 9.45442 24.0001 11.9902 24.0001C14.5259 24.0001 16.9964 23.1965 19.0469 21.7046C19.1152 21.6561 19.172 21.5931 19.2133 21.5201C19.2545 21.4471 19.2792 21.366 19.2856 21.2824C19.2919 21.1988 19.2798 21.1148 19.2501 21.0365C19.2203 20.9581 19.1737 20.8872 19.1135 20.8289V20.8289Z" fill="#1F0256"/>
+    <path d="M11.9973 15.4223C13.8899 15.4223 15.4243 13.888 15.4243 11.9953C15.4243 10.1027 13.8899 8.56836 11.9973 8.56836C10.1046 8.56836 8.57031 10.1027 8.57031 11.9953C8.57031 13.888 10.1046 15.4223 11.9973 15.4223Z" fill="#1F0256"/>
+    <defs>
+      <linearGradient id="paint0_linear_26568_214324" x1="16.4087" y1="-1.75881" x2="-7.88473" y2="22.5365" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#17CCFC"/>
+        <stop offset="0.5" stopColor="#5D31FF"/>
+        <stop offset="1" stopColor="#F35AFF"/>
+      </linearGradient>
+    </defs>
   </svg>
 );
+
+
+
 
 type FlowStep = {
   id: string;
@@ -162,7 +192,7 @@ const flowSteps: FlowStep[] = [
     id: "claudecode",
     title: "Claude Code",
     description: "AI pair programmer. Helps you write code faster and learn as you go.",
-    icon: ClaudeCodeIcon,
+    icon: ClaudeIcon,
     color: "bg-secondary",
     connections: ["anthropic", "filesystem"]
   },
@@ -202,7 +232,7 @@ const flowSteps: FlowStep[] = [
     id: "browser-dev",
     title: "Your Browser",
     description: "Where you test your app. See changes live as you code.",
-    icon: Chrome,
+    icon: ChromeIcon,
     color: "bg-primary",
     connections: ["vite", "convex-dev", "clerk"]
   },
@@ -234,7 +264,7 @@ const flowSteps: FlowStep[] = [
     id: "browser-user",
     title: "End User's Browser",
     description: "Where people use your finished app. The final destination of all your hard work!",
-    icon: Chrome,
+    icon: ChromeIcon,
     color: "bg-success",
     connections: ["vercel", "convex-prod", "clerk", "namecheap"]
   }
@@ -285,7 +315,8 @@ export function DevelopmentFlowDiagram() {
                        step.id === 'convex-dev' || step.id === 'convex-prod' || 
                        step.id === 'anthropic' || step.id === 'nodejs' || 
                        step.id === 'claudecode' || step.id === 'vite' || 
-                       step.id === 'clerk' ? (
+                       step.id === 'clerk' || step.id === 'browser-dev' || 
+                       step.id === 'browser-user' ? (
                         <Icon />
                       ) : (
                         <Icon className="w-6 h-6 text-base-100" />
@@ -305,29 +336,23 @@ export function DevelopmentFlowDiagram() {
         <div className="lg:w-96">
           <div className="card bg-info/10 border border-info/20 shadow-lg sticky top-4">
             <div className="card-body">
-              <h4 className="card-title text-lg mb-4">Connection Flow</h4>
-              {selectedStep ? (
-                <div className="space-y-3">
-                  {getStepById(selectedStep)?.connections.map(connId => {
-                    const connectedStep = getStepById(connId);
-                    if (!connectedStep) return null;
-                    
-                    return (
-                      <div key={connId} className="flex items-start gap-3 text-left">
-                        <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <div>
-                          <div className="font-semibold">{connectedStep.title}</div>
-                          <div className="text-sm opacity-80">{getConnectionDescription(selectedStep, connId)}</div>
-                        </div>
+              <h4 className="card-title text-lg mb-4 text-left">Connection Flow</h4>
+              <div className="space-y-3">
+                {getStepById(activeStep || "developer")?.connections.map(connId => {
+                  const connectedStep = getStepById(connId);
+                  if (!connectedStep) return null;
+                  
+                  return (
+                    <div key={connId} className="flex items-start gap-3 text-left">
+                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div className="text-left">
+                        <div className="font-semibold text-left">{connectedStep.title}</div>
+                        <div className="text-sm opacity-80 text-left">{getConnectionDescription(activeStep || "developer", connId)}</div>
                       </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="text-sm opacity-80 text-left">
-                  Click on any component to see how it connects to others in your development ecosystem.
-                </div>
-              )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
