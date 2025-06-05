@@ -15,7 +15,8 @@ import {
   ArrowRight,
   ArrowLeft,
   ArrowUpDown,
-  Sparkles
+  Sparkles,
+  Chrome
 } from "lucide-react";
 
 const VercelIcon = () => (
@@ -58,6 +59,55 @@ const NamecheapIcon = () => (
   </svg>
 );
 
+const ConvexIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" fill="#F59E0B"/>
+    <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="#EF4444"/>
+    <path d="M12 12L3 7V17L12 22V12Z" fill="#A855F7"/>
+    <path d="M12 12L21 7V17L12 22V12Z" fill="#F59E0B" opacity="0.8"/>
+  </svg>
+);
+
+const AnthropicIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.335 2.063h-3.732l-6.106 20h3.732l1.483-5.093h5.957l1.483 5.093h3.732l-6.106-20h-.443zm-2.046 3.865h.301l2.168 7.46h-4.636l2.167-7.46z"/>
+  </svg>
+);
+
+const NodejsIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M11.9998 2.14661C11.7915 2.14661 11.5915 2.22244 11.4332 2.35828L3.55817 7.39161C3.23317 7.62494 3.0415 7.99994 3.0415 8.39994V13.5999C3.0415 13.9999 3.23317 14.3749 3.55817 14.6083L11.4332 19.6416C11.7582 19.8749 12.2332 19.8749 12.5582 19.6416L20.4332 14.6083C20.7582 14.3749 20.9498 13.9999 20.9498 13.5999V8.39994C20.9498 7.99994 20.7582 7.62494 20.4332 7.39161L12.5582 2.35828C12.3998 2.22244 12.1998 2.14661 11.9998 2.14661Z" fill="#339933"/>
+  </svg>
+);
+
+const ClaudeCodeIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="3" width="18" height="18" rx="4" fill="#FF6600"/>
+    <path d="M8 16L10.5 8H13.5L16 16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M9.5 13H14.5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const ViteIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M21.906 4.903L12.49 21.66a.563.563 0 01-1.029 0L2.045 4.903a.563.563 0 01.544-.816l9.197 1.677a.562.562 0 00.202 0l9.374-1.677a.563.563 0 01.544.816z" fill="url(#vite-gradient)"/>
+    <path d="M15.907 2.768L10.428 3.66a.281.281 0 00-.237.325l1.099 6.251a.281.281 0 00.34.234l2.486-.547a.562.562 0 01.68.467l.421 2.403a.281.281 0 01-.383.317l-1.144-.471a.281.281 0 00-.389.256v.844a.281.281 0 00.15.249l3.195 1.677a.562.562 0 00.803-.35l1.985-9.365a.562.562 0 00-.527-.632z" fill="#FFD62E"/>
+    <defs>
+      <linearGradient id="vite-gradient" x1="2.045" y1="4.087" x2="12.274" y2="22.097" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#41D1FF"/>
+        <stop offset="1" stopColor="#BD34FE"/>
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const ClerkIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" fill="#6366F1"/>
+    <path d="M12 6C8.686 6 6 8.686 6 12s2.686 6 6 6c1.647 0 3.14-.666 4.224-1.745l-1.414-1.414A3.982 3.982 0 0112 16c-2.206 0-4-1.794-4-4s1.794-4 4-4a3.982 3.982 0 012.81 1.159l1.414-1.414A5.972 5.972 0 0012 6z" fill="white"/>
+  </svg>
+);
+
 type FlowStep = {
   id: string;
   title: string;
@@ -89,7 +139,7 @@ const flowSteps: FlowStep[] = [
     title: "File System",
     description: "Your computer's storage. Where all your project files live locally.",
     icon: HardDrive,
-    color: "bg-base-300",
+    color: "bg-info",
     connections: ["shell", "claudecode", "nodejs"]
   },
   {
@@ -97,14 +147,14 @@ const flowSteps: FlowStep[] = [
     title: "Terminal/Shell",
     description: "Command center for developers. Run commands to start servers and manage your project.",
     icon: Terminal,
-    color: "bg-base-300",
+    color: "bg-accent",
     connections: ["nodejs", "filesystem"]
   },
   {
     id: "nodejs",
     title: "Node.js",
     description: "JavaScript runtime. Makes your code come alive on your computer.",
-    icon: Cpu,
+    icon: NodejsIcon,
     color: "bg-success",
     connections: ["vite", "convex-dev"]
   },
@@ -112,7 +162,7 @@ const flowSteps: FlowStep[] = [
     id: "claudecode",
     title: "Claude Code",
     description: "AI pair programmer. Helps you write code faster and learn as you go.",
-    icon: Sparkles,
+    icon: ClaudeCodeIcon,
     color: "bg-secondary",
     connections: ["anthropic", "filesystem"]
   },
@@ -120,7 +170,7 @@ const flowSteps: FlowStep[] = [
     id: "anthropic",
     title: "Anthropic Servers",
     description: "AI brain in the cloud. Powers Claude's intelligence and code suggestions.",
-    icon: Cloud,
+    icon: AnthropicIcon,
     color: "bg-secondary",
     connections: ["claudecode"]
   },
@@ -128,7 +178,7 @@ const flowSteps: FlowStep[] = [
     id: "vite",
     title: "Vite Dev Server",
     description: "Lightning-fast development server. Shows your changes instantly in the browser.",
-    icon: Zap,
+    icon: ViteIcon,
     color: "bg-warning",
     connections: ["browser-dev", "filesystem"]
   },
@@ -136,7 +186,7 @@ const flowSteps: FlowStep[] = [
     id: "convex-dev",
     title: "Convex (Dev)",
     description: "Backend database & API during development. Stores and manages your app's data.",
-    icon: Server,
+    icon: ConvexIcon,
     color: "bg-info",
     connections: ["browser-dev", "convex-prod"]
   },
@@ -144,7 +194,7 @@ const flowSteps: FlowStep[] = [
     id: "clerk",
     title: "Clerk Auth",
     description: "User authentication service. Handles sign-ups, logins, and keeps accounts secure.",
-    icon: Shield,
+    icon: ClerkIcon,
     color: "bg-accent",
     connections: ["browser-dev", "browser-user"]
   },
@@ -152,7 +202,7 @@ const flowSteps: FlowStep[] = [
     id: "browser-dev",
     title: "Your Browser",
     description: "Where you test your app. See changes live as you code.",
-    icon: MonitorSmartphone,
+    icon: Chrome,
     color: "bg-primary",
     connections: ["vite", "convex-dev", "clerk"]
   },
@@ -176,7 +226,7 @@ const flowSteps: FlowStep[] = [
     id: "convex-prod",
     title: "Convex (Production)",
     description: "Live backend database. Handles real user data securely in the cloud.",
-    icon: Server,
+    icon: ConvexIcon,
     color: "bg-info",
     connections: ["browser-user", "convex-dev"]
   },
@@ -184,14 +234,14 @@ const flowSteps: FlowStep[] = [
     id: "browser-user",
     title: "End User's Browser",
     description: "Where people use your finished app. The final destination of all your hard work!",
-    icon: Users,
+    icon: Chrome,
     color: "bg-success",
     connections: ["vercel", "convex-prod", "clerk", "namecheap"]
   }
 ];
 
 export function DevelopmentFlowDiagram() {
-  const [selectedStep, setSelectedStep] = useState<string | null>(null);
+  const [selectedStep, setSelectedStep] = useState<string | null>("developer");
   const [hoveredStep, setHoveredStep] = useState<string | null>(null);
 
   const getStepById = (id: string) => flowSteps.find(step => step.id === id);
@@ -231,7 +281,11 @@ export function DevelopmentFlowDiagram() {
                 >
                   <div className="card-body">
                     <div className={`w-12 h-12 rounded-lg ${step.color} flex items-center justify-center mb-3`}>
-                      {step.id === 'vercel' || step.id === 'namecheap' ? (
+                      {step.id === 'vercel' || step.id === 'namecheap' || 
+                       step.id === 'convex-dev' || step.id === 'convex-prod' || 
+                       step.id === 'anthropic' || step.id === 'nodejs' || 
+                       step.id === 'claudecode' || step.id === 'vite' || 
+                       step.id === 'clerk' ? (
                         <Icon />
                       ) : (
                         <Icon className="w-6 h-6 text-base-100" />
@@ -248,18 +302,18 @@ export function DevelopmentFlowDiagram() {
           </div>
         </div>
 
-        {selectedStep && (
-          <div className="lg:w-96">
-            <div className="card bg-info/10 border border-info/20 shadow-lg sticky top-4">
-              <div className="card-body">
-                <h4 className="card-title text-lg mb-4">Connection Flow</h4>
+        <div className="lg:w-96">
+          <div className="card bg-info/10 border border-info/20 shadow-lg sticky top-4">
+            <div className="card-body">
+              <h4 className="card-title text-lg mb-4">Connection Flow</h4>
+              {selectedStep ? (
                 <div className="space-y-3">
                   {getStepById(selectedStep)?.connections.map(connId => {
                     const connectedStep = getStepById(connId);
                     if (!connectedStep) return null;
                     
                     return (
-                      <div key={connId} className="flex items-start gap-3">
+                      <div key={connId} className="flex items-start gap-3 text-left">
                         <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <div className="font-semibold">{connectedStep.title}</div>
@@ -269,10 +323,14 @@ export function DevelopmentFlowDiagram() {
                     );
                   })}
                 </div>
-              </div>
+              ) : (
+                <div className="text-sm opacity-80 text-left">
+                  Click on any component to see how it connects to others in your development ecosystem.
+                </div>
+              )}
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       <div className="mt-12 max-w-4xl mx-auto">
