@@ -276,7 +276,7 @@ export function DevelopmentFlowDiagram() {
                   onMouseLeave={() => setHoveredStep(null)}
                 >
                   <div className="card-body">
-                    <div className={`w-12 h-12 rounded-lg ${step.color} flex items-center justify-center mb-3 text-white`}>
+                    <div className={`w-12 h-12 rounded-lg ${step.color} flex items-center justify-center mb-3 text-base-100`}>
                       {step.id === 'vercel' || step.id === 'namecheap' || 
                        step.id === 'convex-dev' || step.id === 'convex-prod' || 
                        step.id === 'anthropic' || step.id === 'nodejs' || 

@@ -6,11 +6,14 @@
   - 7db1427 feat: add interactive development flow diagram to home page
   - c99c9d2 update: custom logos and side panel layout for development flow diagram
   - 205cc1f feat: update Clerk icon and make all icons black for consistent design
+  - 40ce9a1 fix: improve icon visibility - Chrome grey shades, larger Convex, purple Vite thunder, yellow Namecheap background
+  - 38f46c1 fix: make all icons adapt to light/dark mode with currentColor and proper text-base-content inheritance
+  - 88101c4 fix: complete icon theme adaptation - all icons now use currentColor and text-white for proper light/dark mode display
 
 ## Current Work
 - Working on Code Bloom template project
 - Focus: Community features and documentation
-- COMPLETED: Interactive diagram with ALL requested custom logos and improvements
+- COMPLETED: Interactive diagram with ALL requested custom logos and perfect light/dark mode theming
 
 ## Status
 - Project is running with development servers active
