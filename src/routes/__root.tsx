@@ -116,6 +116,16 @@ function RootComponent() {
                         Usage
                       </Link>
                       <Link
+                        to="/showcase"
+                        className="btn btn-ghost"
+                        activeProps={{
+                          className: "btn btn-ghost btn-active",
+                        }}
+                        onClick={() => setIsSidebarOpen(false)}
+                      >
+                        Showcase
+                      </Link>
+                      <Link
                         to="/reports"
                         className="btn btn-ghost"
                         activeProps={{
@@ -184,6 +194,18 @@ function RootComponent() {
                           className="flex items-center p-2"
                         >
                           Usage
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/showcase"
+                          onClick={() => setIsSidebarOpen(false)}
+                          activeProps={{
+                            className: "active",
+                          }}
+                          className="flex items-center p-2"
+                        >
+                          Showcase
                         </Link>
                       </li>
                       <li>

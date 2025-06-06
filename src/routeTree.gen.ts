@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as UsageImport } from './routes/usage'
 import { Route as SubmitImport } from './routes/submit'
+import { Route as ShowcaseImport } from './routes/showcase'
 import { Route as SetupImport } from './routes/setup'
 import { Route as ReportsImport } from './routes/reports'
 import { Route as IndexImport } from './routes/index'
@@ -30,6 +31,12 @@ const UsageRoute = UsageImport.update({
 const SubmitRoute = SubmitImport.update({
   id: '/submit',
   path: '/submit',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShowcaseRoute = ShowcaseImport.update({
+  id: '/showcase',
+  path: '/showcase',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -88,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SetupImport
       parentRoute: typeof rootRoute
     }
+    '/showcase': {
+      id: '/showcase'
+      path: '/showcase'
+      fullPath: '/showcase'
+      preLoaderRoute: typeof ShowcaseImport
+      parentRoute: typeof rootRoute
+    }
     '/submit': {
       id: '/submit'
       path: '/submit'
@@ -138,6 +152,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/reports': typeof ReportsRouteWithChildren
   '/setup': typeof SetupRoute
+  '/showcase': typeof ShowcaseRoute
   '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
   '/reports/$reportId': typeof ReportsReportIdRoute
@@ -147,6 +162,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/setup': typeof SetupRoute
+  '/showcase': typeof ShowcaseRoute
   '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
   '/reports/$reportId': typeof ReportsReportIdRoute
@@ -158,6 +174,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/reports': typeof ReportsRouteWithChildren
   '/setup': typeof SetupRoute
+  '/showcase': typeof ShowcaseRoute
   '/submit': typeof SubmitRoute
   '/usage': typeof UsageRoute
   '/reports/$reportId': typeof ReportsReportIdRoute
@@ -170,17 +187,26 @@ export interface FileRouteTypes {
     | '/'
     | '/reports'
     | '/setup'
+    | '/showcase'
     | '/submit'
     | '/usage'
     | '/reports/$reportId'
     | '/reports/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/setup' | '/submit' | '/usage' | '/reports/$reportId' | '/reports'
+  to:
+    | '/'
+    | '/setup'
+    | '/showcase'
+    | '/submit'
+    | '/usage'
+    | '/reports/$reportId'
+    | '/reports'
   id:
     | '__root__'
     | '/'
     | '/reports'
     | '/setup'
+    | '/showcase'
     | '/submit'
     | '/usage'
     | '/reports/$reportId'
@@ -192,6 +218,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ReportsRoute: typeof ReportsRouteWithChildren
   SetupRoute: typeof SetupRoute
+  ShowcaseRoute: typeof ShowcaseRoute
   SubmitRoute: typeof SubmitRoute
   UsageRoute: typeof UsageRoute
 }
@@ -200,6 +227,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ReportsRoute: ReportsRouteWithChildren,
   SetupRoute: SetupRoute,
+  ShowcaseRoute: ShowcaseRoute,
   SubmitRoute: SubmitRoute,
   UsageRoute: UsageRoute,
 }
@@ -217,6 +245,7 @@ export const routeTree = rootRoute
         "/",
         "/reports",
         "/setup",
+        "/showcase",
         "/submit",
         "/usage"
       ]
@@ -233,6 +262,9 @@ export const routeTree = rootRoute
     },
     "/setup": {
       "filePath": "setup.tsx"
+    },
+    "/showcase": {
+      "filePath": "showcase.tsx"
     },
     "/submit": {
       "filePath": "submit.tsx"
