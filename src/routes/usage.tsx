@@ -136,11 +136,11 @@ cd {repoName}`}
           </div>
 
           <div className="not-prose">
-            <h3 className="text-lg font-semibold mb-2">Deploy to Vercel</h3>
-            <p className="mb-3">Configure and deploy your application to Vercel with proper environment variables.</p>
+            <h3 className="text-lg font-semibold mb-2">Deploy Code Bloom App</h3>
+            <p className="mb-3">Configure and deploy your application to Vercel and Convex with proper environment variables.</p>
             <InteractiveCodeBlock
               language="text"
-              template="/project:deploy-vercel"
+              template="/project:deploy-code-bloom-app"
             />
           </div>
 
