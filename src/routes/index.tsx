@@ -16,7 +16,7 @@ function HomePage() {
       </div>
       <h1>Code Bloom</h1>
       <p className="text-xl opacity-80 mb-8">
-        A complete TypeScript stack with React, Vite, TanStack Router, Convex, and Clerk
+        Build your ideas into reality with AI – no coding experience needed
       </p>
 
       <div className="not-prose grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
