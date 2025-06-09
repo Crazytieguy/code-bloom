@@ -7,34 +7,9 @@ export const Route = createFileRoute('/showcase')({
 
 const showcaseItems = [
   {
-    name: 'arrows-of-doom',
-    title: 'Arrows of Doom',
-    description: 'Procedurally generated 3D archery game',
-  },
-  {
-    name: 'cursor-tag',
-    title: 'Cursor Tag',
-    description: '1v1 realtime cursor tag game',
-  },
-  {
-    name: 'kitsune-war-room',
-    title: 'Kitsune War Room',
-    description: 'Investor psychoanalyzing for fun and profit',
-  },
-  {
-    name: 'ltcs',
-    title: 'LTCS',
-    description: 'Laser tag counter strike',
-  },
-  {
-    name: 'party-invite',
-    title: 'Party Invite',
-    description: 'Guest list management',
-  },
-  {
-    name: 'pokemon-ai',
-    title: 'Pokémon AI',
-    description: 'Procedurally generated Pokémon game with PvP',
+    name: 'storyboard',
+    title: 'Storyboard',
+    description: 'Create an AI generated storyboard for a screenplay',
   },
   {
     name: 'rebel-rooster',
@@ -42,9 +17,9 @@ const showcaseItems = [
     description: '2D platformer game',
   },
   {
-    name: 'spencer',
-    title: 'Spencer',
-    description: 'Star Wars quiz',
+    name: 'arrows-of-doom',
+    title: 'Arrows of Doom',
+    description: 'Procedurally generated 3D archery game',
   },
   {
     name: 'split-expense',
@@ -52,9 +27,39 @@ const showcaseItems = [
     description: 'Group expense tracking',
   },
   {
+    name: 'pokemon-ai',
+    title: 'Pokémon AI',
+    description: 'Procedurally generated Pokémon game with PvP',
+  },
+  {
+    name: 'ltcs',
+    title: 'Laser Tag Counter Strike',
+    description: 'Manage a live in person laser tag counter strike game',
+  },
+  {
+    name: 'cursor-tag',
+    title: 'Cursor Tag',
+    description: '1v1 realtime cursor tag game',
+  },
+  {
+    name: 'party-invite',
+    title: 'Party Invite',
+    description: 'Guest list management with check in QR codes',
+  },
+  {
     name: 'zk-whistle',
     title: 'ZK Whistle',
     description: 'ZK Email Twitter Verifier',
+  },
+  {
+    name: 'kitsune-war-room',
+    title: 'Kitsune War Room',
+    description: 'Investor psychoanalyzing for fun and profit',
+  },
+  {
+    name: 'spencer',
+    title: 'Spencer',
+    description: 'Star Wars quiz',
   },
 ]
 

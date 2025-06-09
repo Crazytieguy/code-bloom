@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, Settings, Users } from "lucide-react";
+import { BookOpen, Settings, Users, Film } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
 import { Authenticated, Unauthenticated } from "convex/react";
 import { DevelopmentFlowDiagram } from "@/components/DevelopmentFlowDiagram";
@@ -55,35 +55,55 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="not-prose max-w-2xl mx-auto">
-        <div className="card bg-primary/10 shadow-md border border-primary/20">
+      <div className="not-prose grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
+        <div className="card bg-accent/10 shadow-md border border-accent/20">
           <div className="card-body">
-            <div className="flex items-center gap-3 mb-3 justify-center">
-              <Users className="w-6 h-6 text-primary" />
-              <h2 className="card-title">Community Reports</h2>
+            <div className="flex items-center gap-3 mb-3">
+              <Film className="w-6 h-6 text-accent" />
+              <h2 className="card-title">Showcase</h2>
             </div>
-            <p className="opacity-80 mb-4">
-              Learn from others' experiences using Claude Code with the Code Bloom template. Share your own discoveries and help the community grow.
+            <p className="text-left opacity-80 mb-4">
+              Explore projects built with the Code Bloom template, including games, tools, and interactive experiences.
             </p>
-            <div className="card-actions justify-center gap-3">
-              <Link to="/reports" className="btn btn-primary">
-                Browse Reports
+            <div className="card-actions justify-end">
+              <Link to="/showcase" className="btn btn-accent">
+                View Showcase
               </Link>
-              <Authenticated>
-                <Link to="/submit" className="btn btn-outline">
-                  Share Your Experience
-                </Link>
-              </Authenticated>
-              <Unauthenticated>
-                <SignInButton mode="modal">
-                  <button className="btn btn-outline">
-                    Sign In to Share
-                  </button>
-                </SignInButton>
-              </Unauthenticated>
             </div>
           </div>
         </div>
+
+        <div className="card bg-primary/10 shadow-md border border-primary/20">
+          <div className="card-body">
+            <div className="flex items-center gap-3 mb-3">
+              <Users className="w-6 h-6 text-primary" />
+              <h2 className="card-title">Community Reports</h2>
+            </div>
+            <p className="text-left opacity-80 mb-4">
+              Learn from others' experiences using Claude Code with the Code Bloom template. Share your own discoveries and help the community grow.
+            </p>
+            <div className="card-actions justify-end">
+              <Link to="/reports" className="btn btn-primary">
+                Browse Reports
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="not-prose max-w-2xl mx-auto mb-8">
+        <Authenticated>
+          <Link to="/submit" className="btn btn-outline btn-wide">
+            Share Your Experience
+          </Link>
+        </Authenticated>
+        <Unauthenticated>
+          <SignInButton mode="modal">
+            <button className="btn btn-outline btn-wide">
+              Sign In to Share Your Experience
+            </button>
+          </SignInButton>
+        </Unauthenticated>
       </div>
 
       <DevelopmentFlowDiagram />
