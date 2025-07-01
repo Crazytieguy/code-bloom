@@ -27,7 +27,7 @@ function HomePage() {
               <h2 className="card-title">Development Setup</h2>
             </div>
             <p className="text-left opacity-80 mb-4">
-              Get your development environment ready with step-by-step instructions for Windows, macOS, and Linux.
+              Get your development environment ready with step-by-step instructions for remote development, Windows, macOS, and Linux.
             </p>
             <div className="card-actions justify-end">
               <Link to="/setup" className="btn btn-primary">
