@@ -61,6 +61,11 @@ const showcaseItems = [
     title: 'Spencer',
     description: 'Star Wars quiz',
   },
+  {
+    name: 'success-strategies',
+    title: 'Success Strategies',
+    description: 'Bite-sized cognitive strategies for wellbeing',
+  },
 ]
 
 function ShowcasePage() {
