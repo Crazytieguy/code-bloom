@@ -259,6 +259,33 @@ function DockerUsage() {
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
           <div className="badge badge-primary badge-lg">1</div>
+          <GitBranch className="w-6 h-6 text-primary" />
+          <h2 className="text-xl font-semibold">Create your repository</h2>
+        </div>
+        <div className="ml-12">
+          <p className="mb-4">Go to the template repository and create your own copy:</p>
+          <div className="not-prose space-y-3">
+            <div className="alert alert-info">
+              <div>
+                Go to{" "}
+                <a 
+                  href="https://github.com/Crazytieguy/fullstack-vibe-coding-template" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="link"
+                >
+                  github.com/Crazytieguy/fullstack-vibe-coding-template
+                </a>{" "}
+                and click <strong>"Use this template"</strong> → <strong>"Create a new repository"</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="not-prose">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="badge badge-primary badge-lg">2</div>
           <Code className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Clone in Container</h2>
         </div>
@@ -292,7 +319,7 @@ function DockerUsage() {
 
       <div className="not-prose">
         <div className="flex items-center gap-3 mb-4">
-          <div className="badge badge-primary badge-lg">2</div>
+          <div className="badge badge-primary badge-lg">3</div>
           <Play className="w-6 h-6 text-primary" />
           <h2 className="text-xl font-semibold">Initialize the project</h2>
         </div>
