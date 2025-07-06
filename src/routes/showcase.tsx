@@ -7,6 +7,11 @@ export const Route = createFileRoute('/showcase')({
 
 const showcaseItems = [
   {
+    name: 'battleships',
+    title: 'Battleships',
+    description: 'PvP battleships game',
+  },
+  {
     name: 'storyboard',
     title: 'Storyboard',
     description: 'Create an AI generated storyboard for a screenplay',
