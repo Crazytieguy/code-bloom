@@ -369,7 +369,7 @@ git config --global user.email "{userEmail}"`}
         </div>
         <div className="ml-12">
           <p className="mb-4">Install essential tools used by Claude Code in your WSL Ubuntu environment:</p>
-          <CodeBlock language="bash">sudo apt-get install tmux jq ripgrep</CodeBlock>
+          <CodeBlock language="bash">sudo apt-get install jq ripgrep</CodeBlock>
         </div>
       </div>
     </div>
@@ -491,7 +491,7 @@ git config --global user.email "{userEmail}"`}
         </div>
         <div className="ml-12">
           <p className="mb-4">Install essential tools used by Claude Code:</p>
-          <CodeBlock language="bash">brew install tmux jq ripgrep</CodeBlock>
+          <CodeBlock language="bash">brew install jq ripgrep</CodeBlock>
         </div>
       </div>
 
@@ -605,15 +605,15 @@ git config --global user.email "{userEmail}"`}
           <div className="space-y-3">
             <div>
               <p className="font-medium mb-2">Ubuntu/Debian:</p>
-              <CodeBlock language="bash">sudo apt-get install tmux jq ripgrep</CodeBlock>
+              <CodeBlock language="bash">sudo apt-get install jq ripgrep</CodeBlock>
             </div>
             <div>
               <p className="font-medium mb-2">Arch Linux:</p>
-              <CodeBlock language="bash">sudo pacman -S tmux jq ripgrep</CodeBlock>
+              <CodeBlock language="bash">sudo pacman -S jq ripgrep</CodeBlock>
             </div>
             <div>
               <p className="font-medium mb-2">Fedora:</p>
-              <CodeBlock language="bash">sudo dnf install tmux jq ripgrep</CodeBlock>
+              <CodeBlock language="bash">sudo dnf install jq ripgrep</CodeBlock>
             </div>
           </div>
         </div>
