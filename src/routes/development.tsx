@@ -9,18 +9,32 @@ export const Route = createFileRoute("/development")({
 });
 
 function DevelopmentPage() {
-  const [activeMainTab, setActiveMainTab] = useState<"remote" | "local">("remote");
-  const [activeLocalTab, setActiveLocalTab] = useState<"docker" | "full">("docker");
+  const [activeTab, setActiveTab] = useState<"remote" | "docker" | "local">("docker");
   const [activeOSTab, setActiveOSTab] = useState<"windows" | "macos" | "linux">("macos");
 
-  const mainTabs = [
-    { id: "remote" as const, label: "Remote Development", icon: Cloud, recommended: true },
-    { id: "local" as const, label: "Local Development", icon: Settings, recommended: false },
-  ];
-
-  const localTabs = [
-    { id: "docker" as const, label: "Docker Setup", icon: Container, recommended: true },
-    { id: "full" as const, label: "Full Local Setup", icon: Download, recommended: false },
+  const tabs = [
+    { 
+      id: "remote" as const, 
+      label: "Remote", 
+      icon: Cloud,
+      tagline: "Easiest",
+      description: "Instant setup, limited free usage"
+    },
+    { 
+      id: "docker" as const, 
+      label: "Local Docker", 
+      icon: Container, 
+      recommended: true,
+      tagline: "Balanced",
+      description: "Simple setup, isolated and secure"
+    },
+    { 
+      id: "local" as const, 
+      label: "Fully Local", 
+      icon: Download,
+      tagline: "Most Control",
+      description: "Direct installation with full system access"
+    },
   ];
 
   const osTabs = [
@@ -34,83 +48,98 @@ function DevelopmentPage() {
       <h1>Development Environment</h1>
       <p className="lead">Complete guide for setting up your development environment and creating projects.</p>
       
-      <div className="not-prose mb-4">
-        <div className="tabs tabs-boxed bg-base-200 p-1 justify-center">
-          {mainTabs.map((tab) => {
-            const Icon = tab.icon;
-            return (
-              <div key={tab.id} className="relative">
+      <div className="not-prose mb-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
                 <button
-                  className={`tab tab-lg gap-2 ${activeMainTab === tab.id ? "tab-active bg-primary text-primary-content" : ""}`}
-                  onClick={() => setActiveMainTab(tab.id)}
+                  key={tab.id}
+                  className={`relative group card border-2 transition-all duration-200 transform hover:-translate-y-1 text-left ${
+                    isActive 
+                      ? "border-primary bg-gradient-to-br from-primary/10 via-primary/5 to-transparent shadow-xl shadow-primary/10" 
+                      : "border-base-300 bg-base-100 hover:border-primary/30 hover:shadow-lg hover:bg-base-50"
+                  }`}
+                  onClick={() => setActiveTab(tab.id)}
                 >
-                  <Icon className="w-5 h-5" />
-                  {tab.label}
-                </button>
-                {tab.recommended && (
-                  <div className="badge badge-accent badge-xs absolute -top-1 -right-1 z-10">
-                    Recommended
+                  {tab.recommended && (
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <div className="badge badge-accent badge-sm px-3 py-1 shadow-md font-semibold">
+                        RECOMMENDED
+                      </div>
+                    </div>
+                  )}
+                  <div className="card-body p-6">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className={`p-4 rounded-2xl transition-colors duration-200 ${
+                        isActive 
+                          ? "bg-gradient-to-br from-primary/20 to-primary/10" 
+                          : "bg-base-200 group-hover:bg-base-300"
+                      }`}>
+                        <Icon className={`w-8 h-8 transition-colors duration-200 ${
+                          isActive 
+                            ? "text-primary" 
+                            : "text-base-content/60 group-hover:text-base-content/80"
+                        }`} />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className={`font-bold text-xl transition-colors duration-200 ${
+                          isActive 
+                            ? "text-primary" 
+                            : "text-base-content group-hover:text-primary/80"
+                        }`}>
+                          {tab.label}
+                        </h3>
+                        <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide uppercase ${
+                          isActive
+                            ? "bg-primary/20 text-primary"
+                            : "bg-base-200 text-base-content/60"
+                        }`}>
+                          {tab.tagline}
+                        </div>
+                      </div>
+                      <p className="text-sm text-base-content/70 leading-relaxed h-10">
+                        {tab.description}
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
-            );
-          })}
+                  {isActive && (
+                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
       
-      {activeMainTab === "remote" && <RemoteDevelopment />}
-      {activeMainTab === "local" && (
+      {activeTab === "remote" && <RemoteDevelopment />}
+      {activeTab === "docker" && <DockerDevelopment />}
+      {activeTab === "local" && (
         <div>
           <div className="not-prose mb-4">
-            <div className="tabs tabs-boxed bg-base-200 p-1 justify-center">
-              {localTabs.map((tab) => {
+            <div className="tabs tabs-boxed bg-base-300 p-1 justify-center">
+              {osTabs.map((tab) => {
                 const Icon = tab.icon;
                 return (
-                  <div key={tab.id} className="relative">
-                    <button
-                      className={`tab tab-lg gap-2 ${activeLocalTab === tab.id ? "tab-active bg-secondary text-secondary-content" : ""}`}
-                      onClick={() => setActiveLocalTab(tab.id)}
-                    >
-                      <Icon className="w-5 h-5" />
-                      {tab.label}
-                    </button>
-                    {tab.recommended && (
-                      <div className="badge badge-accent badge-xs absolute -top-1 -right-1 z-10">
-                        Recommended
-                      </div>
-                    )}
-                  </div>
+                  <button
+                    key={tab.id}
+                    className={`tab gap-2 ${activeOSTab === tab.id ? "tab-active bg-accent text-accent-content" : ""}`}
+                    onClick={() => setActiveOSTab(tab.id)}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {tab.label}
+                  </button>
                 );
               })}
             </div>
           </div>
           
-          {activeLocalTab === "docker" && <DockerDevelopment />}
-          {activeLocalTab === "full" && (
-            <div>
-              <div className="not-prose mb-4">
-                <div className="tabs tabs-boxed bg-base-300 p-1 justify-center">
-                  {osTabs.map((tab) => {
-                    const Icon = tab.icon;
-                    return (
-                      <button
-                        key={tab.id}
-                        className={`tab gap-2 ${activeOSTab === tab.id ? "tab-active bg-accent text-accent-content" : ""}`}
-                        onClick={() => setActiveOSTab(tab.id)}
-                      >
-                        <Icon className="w-4 h-4" />
-                        {tab.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              
-              {activeOSTab === "windows" && <WindowsDevelopment />}
-              {activeOSTab === "macos" && <MacOSDevelopment />}
-              {activeOSTab === "linux" && <LinuxDevelopment />}
-            </div>
-          )}
+          {activeOSTab === "windows" && <WindowsDevelopment />}
+          {activeOSTab === "macos" && <MacOSDevelopment />}
+          {activeOSTab === "linux" && <LinuxDevelopment />}
         </div>
       )}
 
@@ -257,7 +286,7 @@ function RemoteDevelopment() {
             <h3 className="text-xl font-semibold">Initialize the project</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Run the initialization command in the terminal:</p>
+            <p className="mb-4">Run the initialization command in the terminal (click "Terminal" in the menu or press <code>Ctrl+`</code>):</p>
             <InteractiveCodeBlock
               language="bash"
               template="pnpm run init"
@@ -356,6 +385,26 @@ function DockerDevelopment() {
             <p>Download from <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener noreferrer" className="link">docker.com/get-started</a></p>
           </div>
         </div>
+
+        <div className="not-prose">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="badge badge-primary badge-lg">5</div>
+            <Settings className="w-6 h-6 text-primary" />
+            <h3 className="text-xl font-semibold">Configure Git</h3>
+          </div>
+          <div className="ml-12">
+            <p className="mb-4">Open your terminal (Terminal app on macOS/Linux, or Windows Terminal with WSL 2) and run:</p>
+            <InteractiveCodeBlock
+              language="bash"
+              template={`git config --global user.name "{userName}"
+git config --global user.email "{userEmail}"`}
+              placeholders={{
+                userName: "Your Name",
+                userEmail: "your.email@example.com"
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       <div id="docker-usage" className="not-prose mt-12">
@@ -399,7 +448,7 @@ function DockerDevelopment() {
             <h3 className="text-xl font-semibold">Clone your repository</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Clone your repository locally:</p>
+            <p className="mb-4">Clone your repository locally (run in your terminal):</p>
             <InteractiveCodeBlock
               language="bash"
               template={`git clone https://github.com/{username}/{repoName}.git
@@ -480,7 +529,7 @@ cd {repoName}`}
             <h3 className="text-xl font-semibold">Initialize the project</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Run the initialization command in the VS Code terminal:</p>
+            <p className="mb-4">Run the initialization command in the VS Code terminal (open with <code>Ctrl+`</code>):</p>
             <InteractiveCodeBlock
               language="bash"
               template="pnpm run init"
@@ -591,7 +640,7 @@ function WindowsDevelopment() {
             <h3 className="text-xl font-semibold">Install pnpm</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Open Windows Terminal and run in your WSL environment:</p>
+            <p className="mb-4">Open Windows Terminal with WSL 2 (Ubuntu) and run:</p>
             <div className="space-y-3">
               <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
               <div className="alert alert-info">
@@ -718,7 +767,7 @@ function MacOSDevelopment() {
             <h3 className="text-xl font-semibold">Install Xcode Command Line Tools</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Usually installed automatically, but if needed:</p>
+            <p className="mb-4">Usually installed automatically, but if needed (run in Terminal app):</p>
             <CodeBlock language="bash">xcode-select --install</CodeBlock>
           </div>
         </div>
@@ -731,6 +780,7 @@ function MacOSDevelopment() {
           </div>
           <div className="ml-12">
             <div className="space-y-3">
+              <p>Run in your terminal:</p>
               <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
               <div className="alert alert-info">
                 <div>
@@ -857,6 +907,7 @@ function LinuxDevelopment() {
           </div>
           <div className="ml-12">
             <div className="space-y-3">
+              <p>Open your terminal and run:</p>
               <CodeBlock language="bash">curl -fsSL https://get.pnpm.io/install.sh | sh -</CodeBlock>
               <div className="alert alert-info">
                 <div>
@@ -994,7 +1045,7 @@ function PerProjectUsageLocal({ sectionId }: { sectionId: string }) {
             <h3 className="text-xl font-semibold">Clone your repository</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Clone your repository to your local projects directory:</p>
+            <p className="mb-4">Clone your repository to your local projects directory (run in your terminal):</p>
             <InteractiveCodeBlock
               language="bash"
               template={`cd ~/projects
@@ -1030,7 +1081,7 @@ cd {repoName}`}
             <h3 className="text-xl font-semibold">Initialize the project</h3>
           </div>
           <div className="ml-12">
-            <p className="mb-4">Run the initialization command in the VS Code terminal:</p>
+            <p className="mb-4">Run the initialization command in the VS Code terminal (open with <code>Ctrl+`</code>):</p>
             <InteractiveCodeBlock
               language="bash"
               template="pnpm run init"
