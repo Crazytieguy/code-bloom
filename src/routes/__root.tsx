@@ -96,24 +96,14 @@ function RootComponent() {
                         Home
                       </Link>
                       <Link
-                        to="/setup"
+                        to="/development"
                         className="btn btn-ghost"
                         activeProps={{
                           className: "btn btn-ghost btn-active",
                         }}
                         onClick={() => setIsSidebarOpen(false)}
                       >
-                        Setup
-                      </Link>
-                      <Link
-                        to="/usage"
-                        className="btn btn-ghost"
-                        activeProps={{
-                          className: "btn btn-ghost btn-active",
-                        }}
-                        onClick={() => setIsSidebarOpen(false)}
-                      >
-                        Usage
+                        Development
                       </Link>
                       <Link
                         to="/showcase"
@@ -174,26 +164,14 @@ function RootComponent() {
                       </li>
                       <li>
                         <Link
-                          to="/setup"
+                          to="/development"
                           onClick={() => setIsSidebarOpen(false)}
                           activeProps={{
                             className: "active",
                           }}
                           className="flex items-center p-2"
                         >
-                          Setup
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/usage"
-                          onClick={() => setIsSidebarOpen(false)}
-                          activeProps={{
-                            className: "active",
-                          }}
-                          className="flex items-center p-2"
-                        >
-                          Usage
+                          Development
                         </Link>
                       </li>
                       <li>
